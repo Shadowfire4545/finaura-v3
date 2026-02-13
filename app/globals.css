@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@plugin './hero.ts';
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9f9f9;
+  --foreground: #e8e8e8;
 }
 
 @theme inline {
@@ -14,13 +17,75 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #e8e8e8;
+    --foreground: #f9f9f9;
   }
 }
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  position: relative;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1b3439 #fafafa;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #1b3439;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+[id] {
+  scroll-margin-top: 8rem !important;
+}
+
+.section-container {
+  display: flex;
+  width: 100%;
+  min-height: 600px;
+  align-items: center;
+  justify-content: center;
+  padding-block: 8rem;
+  padding-inline: 1.5rem;
+}
+
+.section-container-2 {
+  display: flex;
+  background-color: #f9f9f9;
+  width: 100%;
+  min-height: 600px;
+  align-items: center;
+  justify-content: center;
+  padding-block: 8rem;
+  padding-inline: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    margin-block: 3rem;
+  }
+}
+
+.button_teal {
+  background-color: #41C7B5;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #71D4C4;
+  }
 }
