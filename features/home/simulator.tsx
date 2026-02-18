@@ -30,7 +30,7 @@ export default function HomeSimulator() {
     return (
         <section
             id="simulator"
-            className="section-container-2 min-h-full w-full items-center justify-center text-center flex flex-col"
+            className="section-container min-h-full w-full items-center justify-center text-center flex flex-col"
         >
             <div className="flex flex-col lg:flex-row w-full max-w-300 gap-8 p-6 rounded-2xl shadow-md">
                 {/* Datos del simulador */}
