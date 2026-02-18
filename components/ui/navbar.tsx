@@ -30,22 +30,22 @@ export default function Navbar() {
             className="relative z-999 w-full transition-all duration-300 h-auto flex items-center justify-center"
         >
             <nav className={clsx(
-                    'top-0 flex items-center justify-between h-14 lg:h-18 py-2 px-6 max-w-xs lg:max-w-300 w-full',
+                    'top-0 flex items-center justify-between h-14 lg:h-18 py-2 px-6 max-w-sm lg:max-w-300 w-full transition-all duration-300',
                     shouldBeScrolled
-                    ? "fixed bg-default-100 text-gray-900 shadow-md border-2 mt-2 border-[#7B5CF1] rounded-full"
+                    ? "fixed text-gray-900 shadow-md mt-3 bg-linear-to-br from-[#21d6c7]/90 via-20% to-[#7358e0]/90 rounded-full"
                     : "absolute bg-transparent text-white border-b border-transparent"
                 )}
             >
                 <Link href="/" className={`flex gap-2 shrink-0 w-auto`}>
                     <Image
-                        src={shouldBeScrolled ? "/favicon_color.avif" : "/favicon_white.avif"}
+                        src={"/favicon_white.avif"}
                         alt="Logo"
                         width={40}
                         height={24}
                         priority
                     />
                     <Image
-                        src={shouldBeScrolled ? '/finaura_color.avif' : '/finaura_white.avif'}
+                        src={'/finaura_white.avif'}
                         alt="Finaura Logo"
                         width={80}
                         height={24}
@@ -55,11 +55,10 @@ export default function Navbar() {
                 </Link>
 
                 {/* LINKS */}
-                <div className="flex gap-4">
+                <div className="hidden lg:flex gap-4">
                     {NavbarLinks.map((link, index) => (
                         <Link key={index} href={link.href} className={clsx(
-                            "font-semibold tracking-wide",
-                            shouldBeScrolled ? "text-gray-900 hover:text-gray-500" : "text-white hover:text-white/20"
+                            "font-semibold tracking-wide text-white hover:text-white/80"
                         )}>
                             {link.name}
                         </Link>
@@ -67,7 +66,7 @@ export default function Navbar() {
                 </div>
 
                 {/* BUTTONS */}
-                <div className="flex">
+                <div className="hidden lg:flex">
                     <Link href={'/contact'} className={`button_teal px-4 py-2 rounded-2xl tracking-wider font-sans font-medium text-white`}>
                         Registrate
                     </Link>

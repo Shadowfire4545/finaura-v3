@@ -32,7 +32,7 @@ export default function HomeSimulator() {
             id="simulator"
             className="section-container min-h-full w-full items-center justify-center text-center flex flex-col"
         >
-            <div className="flex flex-col lg:flex-row w-full max-w-300 gap-8 p-6 rounded-2xl shadow-md">
+            <div className="flex flex-col lg:flex-row w-full max-w-300 gap-8 p-6 rounded-2xl shadow-md bg-linear-to-br from-[#41C7B5]/40 to-[#41C7B5]/20 shadow-[#71BC51]/20">
                 {/* Datos del simulador */}
                 <div className="flex flex-col items-start gap-4 w-full lg:w-1/3 py-4">
                     <span className="text-2xl text-[#41C7B5] font-semibold tracking-wide text-start">Simula tu crédito en segundos</span>

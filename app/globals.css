@@ -65,6 +65,22 @@ html {
   scrollbar-color: #71D4C4 #fafafa;
 }
 
+.footer {
+  background-color: #070b1a;
+
+  /* Capas: glows + luz central + base + vignette */
+  background-image:
+    radial-gradient(1200px 700px at 72% 45%, rgba(26, 95, 105, 0.38) 0%, rgba(34, 211, 238, 0) 60%),
+    radial-gradient(900px 600px at 32% 72%, rgba(168, 85, 247, .30) 0%, rgba(168, 85, 247, 0) 62%),
+    radial-gradient(700px 500px at 55% 35%, rgba(17, 19, 173, 0.28) 0%, rgba(99, 102, 241, 0) 60%),
+    linear-gradient(135deg, #1b0886 0%, rgb(5, 33, 92) 42%, #073169 70%, #06184b 100%),
+    radial-gradient(circle at 50% 45%, rgba(54, 54, 54, 0) 0%, rgba(0,0,0,.45) 72%, rgba(48, 47, 47, 0.65) 100%);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -96,7 +112,7 @@ html {
 @media (max-width: 768px) {
   .section-container {
     min-height: 200px;
-    margin-block: 3rem;
+    margin-block: 4rem;
   }
 }
 
@@ -104,7 +120,7 @@ html {
   background-color: #41C7B5;
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: #71D4C4;
+    background-color: #2ea390;
   }
 }
 
