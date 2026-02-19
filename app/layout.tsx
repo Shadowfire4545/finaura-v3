@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";
 import Navbar from "@/components/ui/navbar";
-import Footer from "@/components/ui/footer";
+import Footer from "@/public/assets/footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://finaura.com.mx"),

@@ -50,16 +50,13 @@ export default function Footer () {
                     </span>
                     <div className="flex items-center gap-4.25 lg:gap-12">
                         <Link href="https://www.condusef.gob.mx/" target="_blank" rel="noopener">                            
-                            <Image src="/condusef_logo.webp" alt="CONDUSEF" width={90} height={50} />
+                            <Image src="/condusef.png" alt="CONDUSEF" width={90} height={50} />
                         </Link>
                         <Link href="https://www.cnbv.gob.mx/" target="_blank" rel="noopener">
-                            <Image src="/CNBV_logo.webp" alt="CNBV" width={90} height={50} />
+                            <Image src="/CNBV.png" alt="CNBV" width={90} height={50} />
                         </Link>
                         <Link href="https://www.gob.mx/shcp" target="_blank" rel="noopener">
-                            <Image src="/SHCP_logo.webp" alt="SHCP" width={90} height={50} />
-                        </Link>
-                        <Link href="https://www.gob.mx/condusef/prensa/sistema-del-registro-de-prestadores-de-servicios-financieros-31767" target="_blank" rel="noopener">
-                            <Image src="/Sipres_logo.webp" alt="SIPRES" width={90} height={50} />
+                            <Image src="/mexicoBank.png" alt="SHCP" width={90} height={50} />
                         </Link>
                     </div>
                 </div>

@@ -2,18 +2,18 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function HomeHero () {
     return (
         <section
             id="hero-home-page"
-            className="relative min-h-screen w-full flex items-center justify-center 
-                        shadow-2xl text-white px-8 lg:px-0
-                        bg-[url('/assets/home/banner.png')] bg-cover bg-position-[85%_15%] lg:bg-center bg-no-repeat"
+            className="relative min-h-180 w-full flex items-center justify-center 
+                        shadow-2xl text-white px-8 lg:px-0 bg-linear-to-r from-[#7760eb] to-[#4fc5b7] overflow-hidden"
         >
             <div className="absolute inset-0 bg-black/30 lg:bg-transparent" />
 
-            <div className="relative z-10 flex w-full min-h-150 justify-between">
+            <div className="z-10 flex w-full min-h-full justify-between max-w-350">
                 <div className="flex items-center justify-center w-full lg:w-1/2">
                     <motion.div 
                         initial={{ opacity: 0, y: 30 }}
@@ -44,6 +44,14 @@ export default function HomeHero () {
                             </Link>
                         </div>
                     </motion.div>
+                </div>
+                <div className="relative w-full lg:w-1/2 h-100 right-0 flex items-center justify-center">
+                    <Image
+                        src={'/assets/home/banner.png'}
+                        alt="Banner Image"
+                        fill
+                        className="object-contain object-center rounded-3xl"
+                    />
                 </div>
             </div>
         </section>
