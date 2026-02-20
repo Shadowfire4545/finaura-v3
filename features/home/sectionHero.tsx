@@ -31,6 +31,12 @@ export default function HomeHero () {
                             Ordena tu deuda<br/>
                             Recupera el <span className="text_teal underline underline-offset-8">control</span>
                         </h2>
+                        <Image
+                        src={'/assets/home/banner.png'}
+                        alt="Banner Image"
+                        fill
+                        className="flex md:hidden object-contain object-center rounded-3xl"
+                    />
                         <p className="text-lg lg:text-xl italic text-default-200">Unificamos tus compromisos<br/> en un solo plan claro y sostenible</p>
                         <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 w-full text-center">
                             <Link 
@@ -50,7 +56,7 @@ export default function HomeHero () {
                         src={'/assets/home/banner.png'}
                         alt="Banner Image"
                         fill
-                        className="object-contain object-center rounded-3xl"
+                        className="hidden md:flex object-contain object-center rounded-3xl"
                     />
                 </div>
             </div>
