@@ -12,7 +12,7 @@ export default function Home() {
       {/* Validations Section */}
       <section
         id="home-organizations"
-        className="w-full h-56 flex items-center justify-center bg-[#fefefe]"
+        className="w-full h-auto flex items-center justify-center bg-[#fefefe]"
       >
         <div className="w-full max-w-300 h-full flex flex-col lg:flex-row p-8">
           <div className="w-full lg:w-2/3 flex flex-col items-start justify-center gap-2">
@@ -41,7 +41,7 @@ export default function Home() {
       >
         <div className="w-full max-w-300 flex flex-col items-center justify-start gap-8">
           <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-medium tracking-wider text-center text_purple">Beneficios de solicitar tu préstamo en línea con pagos mensuales</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {benefitsData.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
@@ -66,7 +66,7 @@ export default function Home() {
       >
         <div className="w-full max-w-300 flex flex-col items-center gap-6">
           <h2 className="text-2xl md:text-3xl 2xl:text-4xl tracking-widest text-center font-medium text_purple">Requisitos para obtener un préstamo en línea</h2>
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex flex-col md:flew-row items-center justify-center">
             <div className="w-auto md:w-1/2 h-80">
               <div className="w-80 h-80 relative mx-auto rounded-full">
                 <Image
@@ -104,7 +104,7 @@ export default function Home() {
       >
         <div className="w-full max-w-300 flex flex-col md:flex-row items-center justify-start gap-8">
           <div className="w-full md:w-1/2 flex flex-col gap-4">
-            <h2 className="text-2xl md:text-4xl font-bold tracking-wide pr-24 text_purple">¿Cómo solicitar tu préstamo en línea?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-wide md:pr-24 text_purple">¿Cómo solicitar tu préstamo en línea?</h2>
             <p className="text-base text-gray-600">El cobro de tu préstamo se realiza automáticamente cada mes por medio de domiciliación. ¡Así evitas que se te olvide tu fecha de pago!</p>
           </div>
           <div className="w-full md:w-1/2">
@@ -126,7 +126,7 @@ export default function Home() {
       >
         <div className="w-full max-w-300 flex flex-col items-center">
           <div className="w-full flex items-center justify-center">
-            <div className="w-full md:w-1/2">
+            <div className="hidden md:flex w-1/2">
               <div className="w-100 h-100 relative mx-auto rounded-full">
                 <Image
                   src={'/assets/home/secure.avif'}
@@ -163,8 +163,8 @@ export default function Home() {
         className="section-container w-full bg-[#fefefe] py-36"
       >
         <div className="w-full max-w-300 flex flex-col items-center justify-start gap-8">
-          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-medium tracking-widest text-center px-16 text_purple">Préstamos en línea: estos son nuestros resultados</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-medium tracking-widest text-center md:px-16 text_purple">Préstamos en línea: estos son nuestros resultados</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {benefitsData.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
