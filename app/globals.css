@@ -105,3 +105,10 @@ html {
 .text_light_purple {
   color: #5b4acb;
 }
+
+/* HERO: sombra premium para formas (evita “caja blanca”) */
+.hero-curve-shadow {
+  filter:
+    drop-shadow(0 20px 60px rgba(0, 0, 0, 0.22))
+    drop-shadow(0 0 80px rgba(123, 92, 241, 0.18));
+}

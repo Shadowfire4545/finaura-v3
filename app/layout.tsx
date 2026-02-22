@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";
 import Navbar from "@/components/ui/navbar";
-import Footer from "@/public/assets/footer";
+import Footer from "@/components/ui/footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://finaura.com.mx"),
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://finaura.com.mx",
     siteName: "Finaura",
-    title: "Finaura | Préstamos y rendimiento",
+    title: "Finaura | Préstamos y financiamiento",
     description:
-      "Finaura ofrece soluciones de préstamos para patrimonios medios, con enfoque en rendimiento, transparencia y acompañamiento personalizado.",
+      "Finaura ofrece soluciones de préstamos y financiamiento para unificar tus deudas, con enfoque en rendimiento, transparencia y acompañamiento personalizado.",
     images: [
       {
         url: "/favicon.ico", 

@@ -4,11 +4,13 @@ import HomeHero from "@/features/home/sectionHero";
 import HomeSimulator from "@/features/home/simulator";
 import Link from "next/link";
 import Image from "next/image";
+import HomeFAQ from "@/features/home/sectionFAQ";
 
 export default function Home() {
   return (
     <>
       <HomeHero />
+
       {/* Validations Section */}
       <section
         id="home-organizations"
@@ -33,8 +35,10 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Simulator Section */}
       <HomeSimulator />
 
+      {/* Benefits Section */}
       <section
         id="home-benefits"
         className="section-container w-full bg-[#fefefe] py-24"
@@ -60,6 +64,8 @@ export default function Home() {
           <Link href="/contact" className="text-white bg-[#41C7B5] px-5 rounded-3xl py-2 font-medium tracking-wider hover:opacity-80 hover:transition-transform-opacity hover:duration-250">Ver más beneficios</Link>
         </div>
       </section>
+
+      {/* Requirements Section */}
       <section
         id="home-requirements"
         className="section-container w-full"
@@ -98,6 +104,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Information Section */}
       <section
         id="home-information"
         className="section-container w-full bg-[#fefefe] py-24"
@@ -119,7 +127,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+        
+      {/* Secure Section */}
       <section
         id="home-secure"
         className="section-container w-full"
@@ -158,6 +167,7 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Benefits Section */}
       <section
         id="home-results"
         className="section-container w-full bg-[#fefefe] py-36"
@@ -184,10 +194,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <HomeFAQ />
+
       {/* End Section CTA */}
       <section
         id="home-cta"
-        className="w-full h-full flex items-center justify-center"
+        className="w-full h-full flex items-center justify-center bg-[#fefefe]"
       >
         <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4 my-24">
           <h2 className="text-2xl md:text-3xl text-center text_purple font-bold px-4 md:px-0">¿Buscas un préstamo en línea seguro y con tasas y montos atractivos?</h2>

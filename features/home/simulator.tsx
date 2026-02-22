@@ -90,7 +90,7 @@ export default function HomeSimulator() {
                             maxValue={10000000000}
                             variant="bordered"                            
                             value={amount}
-                            onValueChange={(val) => {
+                            onValueChange={(val: number) => {
                                 setAmount(val);
                             }}
                             label="¿Cuánto necesitas?"

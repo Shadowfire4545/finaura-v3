@@ -8,11 +8,11 @@ export default function Navbar() {
 
     return (
         <header
-            className="relative z-999 w-full transition-all duration-300 h-auto flex items-center justify-center"
+            className="relative z-999 w-full transition-all duration-300 h-auto flex items-center justify-center px-4 sm:px-6 lg:px-0"
         >
             <nav className={clsx(`
-                    top-0 flex items-center justify-between h-14 lg:h-18 py-2 px-6 
-                    max-w-sm lg:max-w-300 w-full transition-all duration-300 
+                    top-0 left-1/2 -translate-x-1/2 flex items-center justify-between h-14 lg:h-18 py-2 px-6
+                    w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] lg:max-w-350 transition-all duration-300
                     fixed text-gray-900 shadow-md mt-3 rounded-full
                     bg-linear-to-br from-[#332475]/90 via-20% to-[#332475] `,
                 )}

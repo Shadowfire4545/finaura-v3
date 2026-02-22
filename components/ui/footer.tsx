@@ -21,7 +21,7 @@ export default function Footer () {
                             Inversiones claras, rendimientos sólidos y respaldo institucional
                         </p>
                         <small className="text-xs text_teal lg:text-sm">
-                            Finaura, S.A. de C.V., SOFOM, E.N.R.<br/>&copy; 2026 Todos los derechos reservados.
+                            Finaura, S.A. de C.V.<br/>&copy; 2026 Todos los derechos reservados.
                         </small>
                     </div>
 
