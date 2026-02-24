@@ -1,10 +1,32 @@
+"use client";
 
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { NavbarLinks } from "@/config/navbarLinks";
+import { HiMenu, HiMenuAlt3 } from "react-icons/hi";
+import React from "react";
 
 export default function Navbar() {
+
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const menuRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isMenuOpen]);
 
     return (
         <header
@@ -36,10 +58,10 @@ export default function Navbar() {
                 </Link>
 
                 {/* LINKS */}
-                <div className="hidden lg:flex gap-4">
+                <div className="hidden lg:flex gap-8">
                     {NavbarLinks.map((link, index) => (
                         <Link key={index} href={link.href} className={clsx(
-                            "font-semibold tracking-wide text-white hover:text-white/80"
+                            "font-normal tracking-wide text-white hover:text-white/80"
                         )}>
                             {link.name}
                         </Link>
@@ -48,9 +70,52 @@ export default function Navbar() {
 
                 {/* BUTTONS */}
                 <div className="hidden lg:flex">
-                    <Link href={'/contact'} className={`bg-linear-to-tr from-[#7760eb] to-[#4fc5b7] px-4 py-2 rounded-2xl tracking-wider font-sans font-medium text-white`}>
+                    <Link 
+                        href={'/contact'} 
+                        className={`
+                            bg-[#7c6ddf] 
+                            hover:bg-[#7c6ddf]/80 hover:transition-colors hover:duration-400
+                            px-4 py-2 rounded-full tracking-wider 
+                            font-sans font-medium text-white`}
+                    >
                         Registrate
                     </Link>
+                </div>
+
+                {/* Button Navbar Movile */}
+                <div className="lg:hidden">
+                    <HiMenu size={28} className={`text-white ${isMenuOpen ? 'hidden' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+                    <HiMenuAlt3 size={28} className={`text-white ${isMenuOpen ? '' : 'hidden'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+                </div>
+
+                <div ref={menuRef} className={clsx(`
+                    fixed top-full left-1/2 -translate-x-1/2 w-full mt-1 
+                    flex justify-center items-center transition-all duration-300`,
+                    isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                )}>
+                    <div className="
+                        bg-[#332475]/95 rounded-2xl py-8 px-6
+                        justify-center w-[calc(100%-1rem)]
+                        flex flex-col items-center gap-6 transition-all duration-300
+                    ">
+                        {NavbarLinks.map((link, index) => (
+                            <Link key={index} href={link.href} className={clsx(
+                                "font-normal tracking-wider text-white hover:text-white/80 text-base"
+                            )}>
+                                {link.name}
+                            </Link>
+                        ))}
+                        <Link
+                            href={'/contact'}
+                            className={`
+                                bg-[#7c6ddf] 
+                                hover:bg-[#7c6ddf]/80 hover:transition-colors hover:duration-400
+                                w-full text-center py-2 rounded-full tracking-wider
+                                font-sans font-medium text-white text-sm`}
+                        >
+                            Registrate
+                        </Link>
+                    </div>
                 </div>
             </nav>
         </header>

@@ -43,14 +43,6 @@ html {
   scrollbar-color: #71D4C4 #f8f8f8;
 }
 
-.footer {
-  background-color: #332475;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -106,7 +98,14 @@ html {
   color: #5b4acb;
 }
 
-/* HERO: sombra premium para formas (evita “caja blanca”) */
+.button_purple {
+  background-color: #7c6ddf;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: rgba(124, 109, 223, 0.8);
+  }
+}
+
 .hero-curve-shadow {
   filter:
     drop-shadow(0 20px 60px rgba(0, 0, 0, 0.22))

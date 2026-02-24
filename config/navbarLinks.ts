@@ -1,4 +1,5 @@
 export const NavbarLinks = [
     { name: "Inicio", href: "/" },
-    { name: "Nosotros", href: "/about" },
+    { name: "Unifica tu deuda", href: "/changedebt" },
+    { name: "Contacto", href: "/contact" },
 ]

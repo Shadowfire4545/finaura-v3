@@ -64,7 +64,7 @@ export default function HomeSimulator() {
     const [amount, setAmount] = useState<number>(100000);
     const [period, setPeriod] = useState<number>(18);
     const [simulatedPayments, setSimulatedPayments] = useState<any[]>([]);
-
+    const periodOptions = [6, 12, 18, 24, 30, 36];
     useEffect(() => {
         setSimulatedPayments(getSimulatedPayments(amount, period));
     }, [amount, period])
@@ -75,14 +75,16 @@ export default function HomeSimulator() {
             className="section-container min-h-full w-full items-center justify-center text-center flex flex-col"
         >
             <div className="flex flex-col w-full max-w-300 gap-4">
-                <h2 className="text-xl md:text-3xl font-medium tracking-widest -mt-4 text_purple">Más de $5,000 millones otorgados en préstamos en línea</h2>
-                <h3 className="text-sm md:text-xl font-normal mb-6 text_light_purple">Más de 4 millones de personas han confiado en nosotros.</h3>
-                <div className="flex flex-col md:flex-row w-full gap-8">                
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-widest -mt-4 text_purple">Más de $5,000 millones otorgados en préstamos en línea</h2>
+                <h3 className="text-sm md:text-xl lg:text-2xl font-normal mb-6 text_light_purple">Más de 4 millones de personas han confiado en nosotros.</h3>
+                <div className="flex flex-col md:flex-row w-full gap-8 mt-4">                
                     {/* Datos del simulador */}
                     <div className="flex flex-col items-start justify-start gap-6 md:gap-4 w-full md:w-1/3 py-4">
-                        <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-start">Simula tu crédito en segundos</span>
-                        <span className="text-sm tracking-wide font-medium">Calcula cuánto pagarías al mes fácil y rápido</span>
-
+                        <div className="flex flex-col gap-2 items-start mb-3">
+                            <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-start">Simula tu crédito en segundos</span>
+                            <span className="text-sm tracking-wide font-medium">Calcula cuánto pagarías al mes fácil y rápido</span>
+                        </div>
+                        
                         <NumberInput
                             isRequired
                             defaultValue={10000}
@@ -100,23 +102,34 @@ export default function HomeSimulator() {
                             endContent={<span className="text-default-600 text-xs">MXN</span>}
                             hideStepper
                             classNames={{
-                                label: "text-start text-secondary text-xs 2xl:text-sm font-semibold",
+                                label: "text-sm tracking-wide font-medium text-start text-secondary mb-0.5",
                                 input: "text-[#1b3439] font-semibold text-sm text-[15px]",
                                 description: "hidden",
                                 errorMessage: "hidden",
-                                inputWrapper: "bg-transparent h-12 hover:bg-transparent data-[disabled]:bg-success-600 border-secondary data-[disabled]:border-success-800! hover:border-secondary",                                
+                                inputWrapper: `
+                                    rounded-4xl shadow-md
+                                    border-2 border-secondary focus-within:border-secondary/80 data-[invalid]:border-danger hover:border-secondary/80
+                                    bg-transparent h-12 hover:bg-transparent data-[disabled]:bg-success-600                                     
+                                `,                                
                             }}
                         />
 
-                        <div className="flex flex-col gap-1 w-full">
+                        <div className="flex flex-col gap-3 w-full">
                             <span className="text-sm tracking-wide font-medium text-start text-secondary">Plazo (meses)*</span>
-                            <div className="flex justify-between w-full rounded-xl border-2 border-secondary font-medium">
-                                <button onClick={() => setPeriod(6)} className={`w-full rounded-l-md py-2 ${period === 6 ? "bg-[#7B5CF1]/60 text-white" : ""} transition-colors duration-300`}>6</button>
-                                <button onClick={() => setPeriod(12)} className={`w-full py-2 ${period === 12 ? "bg-[#7B5CF1]/60 text-white" : ""} transition-colors duration-300 border-l-2 border-secondary`}>12</button>
-                                <button onClick={() => setPeriod(18)} className={`w-full py-2 ${period === 18 ? "bg-[#7B5CF1]/60 text-white" : ""} transition-colors duration-300 border-l-2 border-secondary`}>18</button>
-                                <button onClick={() => setPeriod(24)} className={`w-full py-2 ${period === 24 ? "bg-[#7B5CF1]/60 text-white" : ""} transition-colors duration-300 border-l-2 border-secondary`}>24</button>
-                                <button onClick={() => setPeriod(30)} className={`w-full py-2 ${period === 30 ? "bg-[#7B5CF1]/60 text-white" : ""} transition-colors duration-300 border-l-2 border-secondary`}>30</button>
-                                <button onClick={() => setPeriod(36)} className={`w-full rounded-r-md py-2 ${period === 36 ? "bg-[#7B5CF1]/60 text-white" : ""} transition-colors duration-300 border-l-2 border-secondary`}>36</button>
+                            <div className="grid grid-cols-6 gap-3 h-12 w-full">
+                                {periodOptions.map((option) => (
+                                    <button
+                                        key={option}
+                                        onClick={() => setPeriod(option)}
+                                        className={`
+                                            w-full h-full font-medium flex items-center justify-center
+                                            ${period === option ? "bg-[#7B5CF1]/60 text-white inset-shadow-sm inset-shadow-[#7B5CF1]" : "bg-white"} transition-colors duration-300
+                                            rounded-full shadow-xl hover:bg-[#7B5CF1]/40 hover:text-white
+                                        }`}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
                             </div>
                         </div>                 
                     </div>
@@ -126,10 +139,10 @@ export default function HomeSimulator() {
                     <div className="flex flex-col w-full md:w-2/3 rounded-4xl items-start gap-3 justify-between p-8 bg-white/90">
                     
                         <div className="flex flex-col w-full items-center gap-3">
-                            <span className="text-xl text-[#41C7B5] font-semibold tracking-wide text-center w-full">¡Compara las tasas y los pagos mensuales!</span>
-                            <div className="flex flex-col items-center md:items-start gap-1">
-                                <span className="text-md tracking-wide text_purple font-normal">Pago mensual</span>
-                                <span className="text-xl tracking-wide text-secondary font-bold">{simulatedPayments[0]?.monthlyPayment || "$0.00"}</span>
+                            <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-center w-full">¡Compara las tasas y los pagos mensuales!</span>
+                            <div className="flex flex-col items-center gap-1">
+                                <span className="text-md lg:text-lg tracking-wide text_purple font-normal">Pago mensual</span>
+                                <span className="text-xl md:text-2xl text-center tracking-wide text-secondary font-bold">{simulatedPayments[0]?.monthlyPayment || "$0.00"}</span>
                             </div>
                         </div>
                         
@@ -158,7 +171,7 @@ export default function HomeSimulator() {
                         </div>
                     </div>
                 </div>
-                <p className="text-xs text-center text-default-700 mt-4">
+                <p className="text-xs md:text-sm text-start text-default-700 mt-4">
                     Tasa de interés anual y fija de 8.9% a 38.9% sin IVA, sujeta a evaluación y calificación de nuestra área de crédito. Ejemplo representativo: monto de crédito por $425,000.00, con tasa anual de 18.48% y a un plazo de 36 meses. Monto total a pagar: $590,629.55 sin IVA. Sujeto a aprobación de préstamo. CAT PROMEDIO: 26.05% sin IVA. Fecha de cálculo 15 de diciembre 2025. Calculado para fines informativos y de comparación exclusivamente.
                 </p>
             </div>

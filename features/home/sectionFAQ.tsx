@@ -9,7 +9,7 @@ export default function HomeFAQ() {
             className="section-container w-full"
         >
             <div className="w-full max-w-300 flex flex-col lg:flex-row items-start justify-start gap-8">
-                <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-medium tracking-widest text-start text_purple">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-medium tracking-widest text-start text_purple">
                     Preguntas frecuentes sobre préstamos Finaura
                 </h2>
                 <Accordion 
@@ -59,7 +59,7 @@ export default function HomeFAQ() {
                         aria-label={faq.question} 
                         title={faq.question} 
                         classNames={{
-                            title: "text-lg font-medium text_purple",
+                            title: "text-lg lg:text-xl font-medium text_purple tracking-wide",
                             content: "tracking-wider text-gray-700 text-justify",                            
                         }}
                     >

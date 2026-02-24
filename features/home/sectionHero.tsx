@@ -145,11 +145,11 @@ export default function HomeHero() {
             <span
               className="
                 text-[10px] lg:text-xs uppercase text_teal font-medium
-                border border-[#41C7B5] rounded-2xl px-2 py-0.5
+                border border-[#41C7B5] rounded-2xl px-2 py-0.5 tracking-wide
                 bg-[linear-gradient(90deg,rgba(65,199,181,0.50),rgba(65,199,181,0.10))]
               "
             >
-              Financiamiento estructurado responsable
+              Financiamiento responsable
             </span>
 
             <h2 className="text-3xl lg:text-5xl font-bold tracking-wider">
@@ -173,7 +173,7 @@ export default function HomeHero() {
               <Link
                 href="/simulator"
                 className="
-                  bg-[linear-gradient(270deg,#71D4C4_0%,#3d75d8_45%,#6A4BE0_100%)]
+                  bg-[#a69af7] 
                   text-white px-6 py-2 w-full lg:w-auto
                   rounded-full font-bold hover:opacity-70 transition-opacity duration-300
                 "
@@ -184,6 +184,7 @@ export default function HomeHero() {
               <Link
                 href={"/"}
                 className="
+                  bg-[#7B5CF1]/60 text-white inset-shadow-sm inset-shadow-[#7B5CF1]
                   px-4 py-1.5 rounded-full border border-white/70
                   hover:bg-white/15 transition-colors duration-300
                   w-full lg:w-auto
