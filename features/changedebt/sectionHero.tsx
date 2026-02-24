@@ -5,9 +5,9 @@ export default function ChangeDebtHero() {
     return (
         <section
             id="changedebt-hero"
-            className="flex w-full min-h-screen items-center justify-center"
+            className="flex w-full min-h-160 items-center justify-center"
         >
-            <div className="max-w-300 flex flex-col md:flex-row w-full">
+            <div className="max-w-300 flex flex-col md:flex-row w-full mt-24">
                 {/* Image Banner medium devices*/}
                 <div className="w-1/2 hidden md:flex h-80 md:h-100 relative">
                     <Image

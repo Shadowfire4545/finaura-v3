@@ -68,7 +68,7 @@ export default function ChangeDebtPage() {
             </section>
 
             {/* Section Banner Payment Unified */}
-            <section className="min-h-screen w-full flex items-center justify-center bg-secondary-50">
+            <section className="min-h-160 w-full flex items-center justify-center bg-secondary-50">
                 <div className="relative max-w-300 flex flex-col items-center justify-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl text_purple font-medium leading-15 font-serif tracking-widest text-center">
                         Un pago mensual, menos<br/>

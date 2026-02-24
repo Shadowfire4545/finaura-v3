@@ -216,7 +216,7 @@ export default function HomeHero() {
  */
 function HeroCurvedImage() {
   return (
-    <div className="relative w-full max-w-160 aspect-16/10 rotate-2">
+    <div className="relative w-full max-w-160 aspect-16/10">
       {/* Sombra base */}
       <div className="absolute inset-0 hero-curve-shadow" />
 
@@ -296,7 +296,7 @@ function HeroCurvedImage() {
               src={"/assets/home/banner.avif"}
               alt="Banner Image"
               fill
-              className="object-cover object-center"
+              className="object-contain object-center"
               priority
             />
           </div>
