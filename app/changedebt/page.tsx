@@ -68,19 +68,19 @@ export default function ChangeDebtPage() {
             </section>
 
             {/* Section Banner Payment Unified */}
-            <section className="min-h-160 w-full flex items-center justify-center bg-secondary-50">
-                <div className="relative max-w-300 flex flex-col items-center justify-center">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl text_purple font-medium leading-15 font-serif tracking-widest text-center">
+            <section className="relative min-h-160 w-full flex items-center justify-center bg-[#332475]/80 overflow-hidden">
+                <div className="relative max-w-300 w-full min-h-160 flex flex-col items-center justify-start">
+                    <h2 className="z-10 text-3xl md:text-4xl lg:text-5xl text-white font-medium leading-15 font-serif tracking-widest text-center mt-[calc(10%)]">
                         Un pago mensual, menos<br/>
-                        intereses más <span className="text_light_purple font-bold">flexibilidad</span>
+                        intereses más <span className="text-[#41C7B5] font-bold">flexibilidad</span>
                     </h2>
-                    <div className="flex relative">
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
                         <Image
-                            src={'/assets/home/banner3.avif'}
+                            src={'/assets/changeDebt/banner.avif'}
                             alt="payment unified image"
                             width={500}
                             height={300}
-                            className="object-contain bottom-0"
+                            className="object-contain"
                         />
                     </div>
                 </div>
@@ -95,7 +95,7 @@ export default function ChangeDebtPage() {
                 className="section-container w-full bg-[#fefefe] py-36"
             >
                 <div className="w-full max-w-300 flex flex-col items-center justify-start gap-8 md:gap-16">
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 lg:gap-5">
                         <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-start md:text-center md:px-16 text_purple">
                             Beneficios de la consolidación de deudas con <span className="text_light_purple font-medium"> Finaura. </span>
                         </h2>
@@ -105,17 +105,17 @@ export default function ChangeDebtPage() {
                             Estas son las ventajas de <span className="text_light_purple font-medium">Finaura.</span>
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12">
                         {benefitsDataChangeDebt.map((benefit, index) => {
                         const Icon = benefit.icon;
                         return (
-                            <div key={index} className="flex md:flex-col items-center justify-start md:justify-between gap-4 md:gap-2 p-4 h-full hover:scale-105 hover:transition-transform hover:duration-500">
-                                <span className="p-4 bg-[#2ea390]/80 rounded-3xl">
+                            <div key={index} className="flex md:flex-col items-center justify-start md:justify-between gap-4 p-4 h-full hover:scale-105 hover:transition-transform hover:duration-500">
+                                <span className="p-4 lg:p-5 bg-[#2ea390]/80 rounded-3xl">
                                     {Icon && <Icon className="text-default-100 w-6 h-6 md:w-8 md:h-8"/>}
                                 </span>
                                 <div className="flex flex-col h-full gap-1 text-start md:text-center">
-                                    <h3 className="text-lg font-bold text_purple">{benefit.title}</h3>
-                                    <p className="text-sm text-gray-600 tracking-wide">{benefit.description}</p>
+                                    <h3 className="text-base md:text-lg lg:text-xl font-bold text_purple tracking-wide">{benefit.title}</h3>
+                                    <p className="text-sm md:text-base text-gray-600">{benefit.description}</p>
                                 </div>
                             </div>
                         )

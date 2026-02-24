@@ -1,10 +1,13 @@
 "use client";
 
-import { NumberInput } from "@heroui/react";
+import { NumberInput, Select, SelectItem } from "@heroui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { getSimulatedPayments } from "../home/lib/simulator";
+import { bankData } from "./data/banksData";
+import Image from "next/image";
+import { CiCreditCard1 } from "react-icons/ci";
 
 const DIGITS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const SYMBOLS = ["$", ",", ".", " "];
@@ -64,9 +67,13 @@ export default function ChangeDebtSimulator() {
     const [amount, setAmount] = useState<number>(100000);
     const [period, setPeriod] = useState<number>(18);
     const [simulatedPayments, setSimulatedPayments] = useState<any[]>([]);
+    const [selectedBank, setSelectedBank] = useState<string>();
+    const [selectedCard, setSelectedCard] = useState<string>();
     const periodOptions = [6, 12, 18, 24, 30, 36];
+
     useEffect(() => {
         setSimulatedPayments(getSimulatedPayments(amount, period));
+        console.log("Simulated Pa")
     }, [amount, period])
 
     return (
@@ -75,14 +82,12 @@ export default function ChangeDebtSimulator() {
             className="section-container min-h-full w-full items-center justify-center text-center flex flex-col"
         >
             <div className="flex flex-col w-full max-w-300 gap-4">
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-widest -mt-4 text_purple">Más de $5,000 millones otorgados en préstamos en línea</h2>
-                <h3 className="text-sm md:text-xl lg:text-2xl font-normal mb-6 text_light_purple">Más de 4 millones de personas han confiado en nosotros.</h3>
                 <div className="flex flex-col md:flex-row w-full gap-8 mt-4">                
                     {/* Datos del simulador */}
                     <div className="flex flex-col items-start justify-start gap-6 md:gap-4 w-full md:w-1/3 py-4">
                         <div className="flex flex-col gap-2 items-start mb-3">
-                            <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-start">Simula tu crédito en segundos</span>
-                            <span className="text-sm tracking-wide font-medium">Calcula cuánto pagarías al mes fácil y rápido</span>
+                            <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-start">¿Cuánto debes? Simula tu préstamo para consolidar deudas</span>
+                            <span className="text-sm tracking-wide font-medium text-start">Elige el plazo que deseas y descubre cuánto puedes ahorrar:</span>
                         </div>
                         
                         <NumberInput
@@ -95,7 +100,7 @@ export default function ChangeDebtSimulator() {
                             onValueChange={(val: number) => {
                                 setAmount(val);
                             }}
-                            label="¿Cuánto necesitas?"
+                            label="¿Cuánto debes?"
                             labelPlacement="outside-top"
                             color="secondary"
                             startContent={<span className="text-default-600 text-sm">$</span>}
@@ -114,6 +119,86 @@ export default function ChangeDebtSimulator() {
                             }}
                         />
 
+                        <Select
+                            label="¿Cuál es tu banco?"
+                            labelPlacement="outside-top"
+                            placeholder="Selecciona un banco"
+                            color="secondary"
+                            variant="bordered"
+                            className="w-full"
+                            selectedKeys={selectedBank ? new Set([selectedBank]) : new Set()}
+                            onSelectionChange={(keys) => setSelectedBank(Array.from(keys)[0] as string)}
+                            radius="full"
+                            startContent={
+                                        selectedBank && <Image 
+                                            src={bankData.find(bank => bank.name === selectedBank)?.icon || '/assets/changeDebt/bankList/banamex.png'}
+                                            width={16} 
+                                            height={16} 
+                                            alt={selectedBank || 'Banamex'} 
+                                        />
+                                    }
+                            classNames={{
+                                label: "text-sm tracking-wide font-medium text-start text-secondary mb-0.5",
+                                trigger: `
+                                    border-2 border-secondary focus-within:border-secondary/80 data-[invalid=true]:border-danger hover:border-secondary/80
+                                    bg-transparent h-12 hover:bg-transparent data-[hover=true]:bg-transparent
+                                `,
+                                value: "text-[#1b3439] font-semibold text-[15px]",
+                                selectorIcon: "text-default-600",
+                            }}
+                        >
+                            {bankData.map((bank) => (
+                                <SelectItem 
+                                    key={bank.name} 
+                                    startContent={
+                                        <Image 
+                                            src={bank.icon || '/assets/changeDebt/bankList/banamex.png'}
+                                            width={16} 
+                                            height={16} 
+                                            alt={bank.name} 
+                                        />
+                                    }
+                                >
+                                    {bank.name}
+                                </SelectItem>
+                            ))}
+                        </Select>
+                        <Select
+                            label="Tarjeta de crédito"
+                            labelPlacement="outside-top"
+                            placeholder="Selecciona una tarjeta"
+                            isDisabled={!selectedBank}
+                            color="secondary"
+                            variant="bordered"
+                            className="w-full"
+                            radius="full"
+                            selectedKeys={selectedCard ? new Set([selectedCard]) : new Set()}
+                            onSelectionChange={(keys) => setSelectedCard(Array.from(keys)[0] as string)}
+                            startContent={<CiCreditCard1 className="text-default-600 w-4 h-4"/>}
+                            classNames={{
+                                label: "text-sm tracking-wide font-medium text-start text-secondary mb-0.5",
+                                trigger: `
+                                    border-2 border-secondary focus-within:border-secondary/80 data-[invalid=true]:border-danger hover:border-secondary/80
+                                    bg-transparent h-12 hover:bg-transparent data-[hover=true]:bg-transparent
+                                `,
+                                value: "text-[#1b3439] font-semibold text-sm",
+                                selectorIcon: "text-default-600",
+                            }}
+                        >
+                            {selectedBank 
+                            ? bankData.find(bank => bank.name === selectedBank)?.cards.map((card) => (
+                                <SelectItem key={card.name} startContent={<CiCreditCard1 className="text-default-600 w-4 h-4"/>}>                                        
+                                    {card.name}
+                                </SelectItem>
+                            )) || []
+                            : (
+                                <SelectItem key="placeholder">
+                                    Selecciona un banco
+                                </SelectItem>
+                            )
+                            }
+                        </Select>
+
                         <div className="flex flex-col gap-3 w-full">
                             <span className="text-sm tracking-wide font-medium text-start text-secondary">Plazo (meses)*</span>
                             <div className="grid grid-cols-6 gap-3 h-12 w-full">
@@ -131,20 +216,17 @@ export default function ChangeDebtSimulator() {
                                     </button>
                                 ))}
                             </div>
-                        </div>                 
+                        </div>
+                        <p className="text-start ">
+                            Esta es una cotización preliminar, la tasa definitiva dependerá del análisis completo de tu solicitud.
+                        </p>            
                     </div>
                     
 
                     {/* Tabla de resultados */}
                     <div className="flex flex-col w-full md:w-2/3 rounded-4xl items-start gap-3 justify-between p-8 bg-white/90">
                     
-                        <div className="flex flex-col w-full items-center gap-3">
-                            <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-center w-full">¡Compara las tasas y los pagos mensuales!</span>
-                            <div className="flex flex-col items-center gap-1">
-                                <span className="text-md lg:text-lg tracking-wide text_purple font-normal">Pago mensual</span>
-                                <span className="text-xl md:text-2xl text-center tracking-wide text-secondary font-bold">{simulatedPayments[0]?.monthlyPayment || "$0.00"}</span>
-                            </div>
-                        </div>
+                        <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-center w-full">¡Liquida tus deudas y paga menos!</span>
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 w-full md:gap-3">
                             {simulatedPayments.map((card, index) => (
@@ -164,11 +246,15 @@ export default function ChangeDebtSimulator() {
                             ))}
                         </div>
 
-                        <div className="flex flex-col md:flex-row w-full gap-6 mt-2">
-                            <Link href="/contact" className="button_teal w-full p-2 rounded-2xl text-white font-medium mt-4">
-                                Solicitar mi préstamo
-                            </Link>
+                        
+                        <div className="flex flex-col gap-1 text-center w-full">
+                            <span className="text-md lg:text-lg tracking-wide text_purple font-normal">Pago mensual</span>
+                            <span className="text-xl md:text-2xl text-center tracking-wide text-secondary font-bold">{simulatedPayments[0]?.monthlyPayment || "$0.00"}</span>
                         </div>
+
+                        <Link href="/contact" className="button_teal mx-auto py-2 px-6 rounded-2xl text-white font-medium mt-4">
+                            Solicitar mi préstamo
+                        </Link>
                     </div>
                 </div>
                 <p className="text-xs md:text-sm text-start text-default-700 mt-4">
