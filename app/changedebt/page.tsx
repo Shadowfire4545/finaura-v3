@@ -1,4 +1,5 @@
 import { benefitsDataChangeDebt } from "@/features/changedebt/data/benefitsData";
+import { howWorksFinauraData } from "@/features/changedebt/data/howWorksFinaura";
 import ChangeDebtHero from "@/features/changedebt/sectionHero";
 import ChangeDebtSimulator from "@/features/changedebt/sectionSimulator";
 import Image from "next/image";
@@ -55,12 +56,12 @@ export default function ChangeDebtPage() {
                         </p>
                     </div>
                     <div className="w-full md:w-1/2">
-                        <div className="w-full h-60 relative mx-auto rounded-3xl">
+                        <div className="w-60 h-60 relative mx-auto">
                             <Image
-                                src={'/assets/home/information.avif'}
+                                src={'/assets/changeDebt/information.avif'}
                                 alt="information image"
                                 fill
-                                className="object-contain"
+                                className="object-cover rounded-full"
                             />
                         </div>
                     </div>
@@ -68,18 +69,17 @@ export default function ChangeDebtPage() {
             </section>
 
             {/* Section Banner Payment Unified */}
-            <section className="relative min-h-160 w-full flex items-center justify-center bg-[#332475]/80 overflow-hidden">
-                <div className="relative max-w-300 w-full min-h-160 flex flex-col items-center justify-start">
-                    <h2 className="z-10 text-3xl md:text-4xl lg:text-5xl text-white font-medium leading-15 font-serif tracking-widest text-center mt-[calc(10%)]">
+            <section className="relative w-full flex items-center justify-center bg-[#332475]/80 overflow-hidden">
+                <div className="relative max-w-300 w-full min-h-120 md:min-h-160 flex flex-col items-center justify-start">
+                    <h2 className="z-10 text-3xl md:text-4xl lg:text-5xl text-white font-medium leading-10 md:leading-15 font-serif tracking-widest text-center mt-[calc(10%)]">
                         Un pago mensual, menos<br/>
                         intereses más <span className="text-[#41C7B5] font-bold">flexibilidad</span>
                     </h2>
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-60 md:h-80 lg:h-96">
                         <Image
-                            src={'/assets/changeDebt/banner.avif'}
+                            src={'/assets/changeDebt/banner1.avif'}
                             alt="payment unified image"
-                            width={500}
-                            height={300}
+                            fill
                             className="object-contain"
                         />
                     </div>
@@ -96,10 +96,10 @@ export default function ChangeDebtPage() {
             >
                 <div className="w-full max-w-300 flex flex-col items-center justify-start gap-8 md:gap-16">
                     <div className="flex flex-col gap-3 lg:gap-5">
-                        <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-start md:text-center md:px-16 text_purple">
+                        <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-center md:px-16 text_purple">
                             Beneficios de la consolidación de deudas con <span className="text_light_purple font-medium"> Finaura. </span>
                         </h2>
-                        <p className="text-center tracking-wider">
+                        <p className="text-center text-sm md:text-base tracking-wider">
                             Unificar tus deudas no sólo simplifica tu vida, también te ayuda a pagar menos<br/>
                             (puedes ahorrar más del 50% en intereses) y a mejorar tu salud financiera.<br/>
                             Estas son las ventajas de <span className="text_light_purple font-medium">Finaura.</span>
@@ -122,6 +122,32 @@ export default function ChangeDebtPage() {
                         })}
                     </div>
                     <Link href="/contact" className="text-white bg-[#41C7B5] px-5 rounded-3xl py-2 font-medium tracking-wider hover:opacity-80 hover:transition-transform-opacity hover:duration-250">Ver más beneficios</Link>
+                </div>
+            </section>
+
+            {/* Section How-It-Works Finaura */}
+            <section
+                id="changeedebt-how-it-works-finaura"
+                className="section-container w-full"
+            >
+                <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4">
+                    <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-center md:px-16 text_purple">
+                        ¿Cómo funciona finaura?
+                    </h2>
+                    <p className="text-base lg:text-lg text-gray-600 text-center tracking-wide">
+                        Consolidar tus deudas nunca había sido tan sencillo. <br/>Aquí te explicamos cómo hacerlo en tres simples pasos:
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-24 2xl:gap-28 w-full mt-6">
+                        {howWorksFinauraData.map((item, index) => (
+                            <div key={index} className="flex flex-col gap-3 h-full ">
+                                <div className="flex items-center justify-start gap-6">
+                                    <span className="text-start text_light_purple text-6xl px-2 font-medium font-sans">{item.step}</span>
+                                    <h3 className="text-lg font-bold text_purple tracking-wider">{item.title}</h3>
+                                </div>                                
+                                <p className="text-sm md:text-base tracking-wide text-gray-600">{item.description}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
         </>

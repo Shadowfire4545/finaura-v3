@@ -286,17 +286,17 @@ function HeroCurvedImage() {
         {/* Imagen recortada con clipPath */}
         <foreignObject
           x="80"
-          y="40"
+          y="0"
           width="640"
-          height="420"
+          height="540"
           clipPath="url(#heroClip)"
         >
           <div className="relative w-full h-full">
             <Image
-              src={"/assets/home/banner.avif"}
+              src={"/assets/home/secure.avif"}
               alt="Banner Image"
               fill
-              className="object-contain object-center"
+              className="object-contain"
               priority
             />
           </div>

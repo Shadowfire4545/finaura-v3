@@ -109,7 +109,7 @@ export default function Footer () {
                 
                 <hr className="w-full border-0 h-px bg-[#5b4acb]" />
 
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center text-sm md:text-base">
                     &copy; 2026 Finaura, S.A. de C.V. Todos los derechos reservados. Financiamiento sujeto a aprobación.
                 </div>
             </div>

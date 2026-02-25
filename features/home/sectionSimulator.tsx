@@ -116,7 +116,7 @@ export default function HomeSimulator() {
 
                         <div className="flex flex-col gap-3 w-full">
                             <span className="text-sm tracking-wide font-medium text-start text-secondary">Plazo (meses)*</span>
-                            <div className="grid grid-cols-6 gap-3 h-12 w-full">
+                            <div className="grid grid-cols-6 gap-3 h-10 md:h-12 w-full">
                                 {periodOptions.map((option) => (
                                     <button
                                         key={option}

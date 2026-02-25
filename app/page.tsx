@@ -145,15 +145,15 @@ export default function Home() {
             <div className="hidden md:flex w-1/2">
               <div className="w-100 h-100 relative mx-auto rounded-full">
                 <Image
-                  src={'/assets/home/secure.avif'}
+                  src={'/assets/home/banner.avif'}
                   alt="secure image"
                   fill
-                  className="object-contain"
+                  className="object-cover rounded-full"
                 />
               </div>
             </div>
             <div className="w-full md:w-1/2 gap-4 flex flex-col">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium font-serif text_purple tracking-wider leading-15">¿Es seguro pedir un préstamo en línea en finaura?</h2>          
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium font-serif text_purple tracking-wider leading-10 md:leading-15">¿Es seguro pedir un préstamo en línea en finaura?</h2>          
               <h3 className="text-xl font-semibold text-gray-700">¡Sí, es seguro!</h3>
               <div className="flex flex-col gap-4">
                 <div className="flex w-full items-center justify-center">
@@ -180,7 +180,7 @@ export default function Home() {
         className="section-container w-full bg-[#fefefe] py-36"
       >
         <div className="w-full max-w-300 flex flex-col items-center justify-start gap-8">
-          <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-start md:text-center md:px-16 text_purple">Préstamos en línea: estos son nuestros resultados</h2>
+          <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-start md:text-center md:px-16 text_purple">Préstamos en línea:<br/> Estos son nuestros resultados</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4">
             {benefitsData.map((benefit, index) => {
               const Icon = benefit.icon;
@@ -210,7 +210,7 @@ export default function Home() {
         className="w-full h-full flex items-center justify-center bg-[#fefefe]"
       >
         <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4 my-24">
-          <h2 className="text-2xl md:text-4xl 2xl:text-5xl text-center text_purple font-medium tracking-wide max-w-250 px-4 md:px-0">¿Buscas un préstamo seguro y con tasas y montos atractivos?</h2>
+          <h2 className="text-2xl md:text-4xl 2xl:text-5xl text-center text_purple font-medium tracking-wider leading-10 md:leading-15 max-w-250 px-4 md:px-0">¿Buscas un préstamo seguro y con tasas y montos atractivos?</h2>
           <Link 
             href="/contact" 
             className="

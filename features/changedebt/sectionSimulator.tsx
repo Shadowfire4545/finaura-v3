@@ -8,6 +8,7 @@ import { getSimulatedPayments } from "../home/lib/simulator";
 import { bankData } from "./data/banksData";
 import Image from "next/image";
 import { CiCreditCard1 } from "react-icons/ci";
+import { calculatedSimulatedPaymentsConsolidated } from "./lib/simulator";
 
 const DIGITS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const SYMBOLS = ["$", ",", ".", " "];
@@ -46,18 +47,26 @@ function RollingCharacter({ character, index, value }: { character: string; inde
     );
 }
 
-function RollingMonthlyPayment({ value }: { value: string }) {
+function RollingMonthlyPayment({ value }: { value: string | number }) {
+    const formattedValue = typeof value === "number"
+        ? value.toLocaleString("es-MX", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+            style: "currency",
+            currency: "MXN",
+        })
+        : String(value ?? "$0.00");
+
     return (
         <div className="inline-flex items-end whitespace-nowrap tracking-normal">
-            {value.split("").map((character, index) => (
+            {formattedValue.split("").map((character, index) => (
                 <RollingCharacter
-                    key={`char-wrap-${index}-${character}-${value}`}
+                    key={`char-wrap-${index}-${character}-${formattedValue}`}
                     character={character}
                     index={index}
-                    value={value}
+                    value={formattedValue}
                 />
             ))}
-            <span className="text-xs lg:text-sm ml-1">/ mes</span>
         </div>
     );
 }
@@ -66,14 +75,13 @@ export default function ChangeDebtSimulator() {
 
     const [amount, setAmount] = useState<number>(100000);
     const [period, setPeriod] = useState<number>(18);
-    const [simulatedPayments, setSimulatedPayments] = useState<any[]>([]);
+    const [simulatedPaymentsConsolidated, setSimulatedPaymentsConsolidated] = useState<any[]>([]);
     const [selectedBank, setSelectedBank] = useState<string>();
     const [selectedCard, setSelectedCard] = useState<string>();
     const periodOptions = [6, 12, 18, 24, 30, 36];
 
     useEffect(() => {
-        setSimulatedPayments(getSimulatedPayments(amount, period));
-        console.log("Simulated Pa")
+        setSimulatedPaymentsConsolidated(calculatedSimulatedPaymentsConsolidated(19.9, amount, period));
     }, [amount, period])
 
     return (
@@ -82,7 +90,7 @@ export default function ChangeDebtSimulator() {
             className="section-container min-h-full w-full items-center justify-center text-center flex flex-col"
         >
             <div className="flex flex-col w-full max-w-300 gap-4">
-                <div className="flex flex-col md:flex-row w-full gap-8 mt-4">                
+                <div className="flex flex-col md:flex-row w-full gap-8 mt-0 md:mt-4">                
                     {/* Datos del simulador */}
                     <div className="flex flex-col items-start justify-start gap-6 md:gap-4 w-full md:w-1/3 py-4">
                         <div className="flex flex-col gap-2 items-start mb-3">
@@ -201,7 +209,7 @@ export default function ChangeDebtSimulator() {
 
                         <div className="flex flex-col gap-3 w-full">
                             <span className="text-sm tracking-wide font-medium text-start text-secondary">Plazo (meses)*</span>
-                            <div className="grid grid-cols-6 gap-3 h-12 w-full">
+                            <div className="grid grid-cols-6 gap-3 h-10 md:h-12 w-full">
                                 {periodOptions.map((option) => (
                                     <button
                                         key={option}
@@ -224,35 +232,63 @@ export default function ChangeDebtSimulator() {
                     
 
                     {/* Tabla de resultados */}
-                    <div className="flex flex-col w-full md:w-2/3 rounded-4xl items-start gap-3 justify-between p-8 bg-white/90">
+                    <div className="flex flex-col w-full md:w-2/3 rounded-4xl gap-3 md:gap-6 p-8 bg-white/90">
                     
                         <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-center w-full">¡Liquida tus deudas y paga menos!</span>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-3 w-full md:gap-3">
-                            {simulatedPayments.map((card, index) => (
-                                <div 
-                                    key={index} 
-                                    className={`flex flex-col gap-1 bg-white/90 rounded-2xl p-4 mt-4 items-center md:items-start shadow-md 
-                                                relative hover:-translate-y-1 hover:shadow-lg transition-all duration-500
-                                                ${index === 0 ? "border border-[#41C7B5]" : ""}`}
-                                >
-                                    <span className={`${index === 0 ? "absolute -top-3 bg-[#41C7B5] text-white rounded-xl px-2 py-1 text-sm font-semibold" : "hidden"}`}>Mejor opción</span>
-                                    <span className="text-sm lg:text-lg tracking-wide font-medium text-default-700">{card.title}</span>
-                                    <span className={`text-2xl lg:text-3xl tracking-wide font-semibold ${index === 0 ? 'text-secondary' : index === 1 ? 'text-default-700' : 'text-danger'}`}>{card.rate}</span>
-                                    <div className="text-sm lg:text-lg tracking-wide font-medium text-default-700">
-                                        <RollingMonthlyPayment value={card.monthlyPayment} />
+                        <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3 h-full mt-2">
+                            {simulatedPaymentsConsolidated.map((card, index) => (
+                                <div className="flex flex-col relative justify-between border-2 border-[#41C7B5]/30 rounded-2xl p-8 min-h-full shadow-lg hover:shadow-xl hover:transition-all hover:duration-300" key={index}>
+                                    <span className={`${index === 0 ? "absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#41C7B5] text-white rounded-xl px-2 py-1 text-sm font-semibold" : "hidden"}`}>Mejor opción</span>                                    
+                                    <div className="flex flex-col items-center">
+                                        {card.name === 'bank' 
+                                        ? (selectedBank 
+                                            ? <Image 
+                                                src={bankData.find(bank => bank.name === selectedBank)?.icon || '/assets/changeDebt/bankList/banamex.png'}
+                                                width={32} 
+                                                height={32} 
+                                                alt={selectedBank || 'Banamex'} 
+                                                />
+                                            : <CiCreditCard1 className="text-default-600 w-8 h-8"/>
+                                        ) :
+                                            <Image
+                                                src={'/favicon_color.avif'}
+                                                alt="Finaura logo"
+                                                width={36}
+                                                height={36}
+                                            />
+                                        }
+                                        <span className="text-lg lg:text-2xl tracking-wide font-medium text-default-700">{card.name === 'bank' ? (selectedBank ? selectedBank : 'Tu Banco') : 'Finaura'}</span>
+                                    </div>
+                                    <div className="flex flex-col text-center gap-1 items-center justify-center">
+                                        <span className="text-sm tracking-wide text_purple font-medium">Tasa</span>
+                                        <span className={`text-lg lg:text-2xl tracking-wide font-semibold text-default-700`}>{card.rate}%</span>
+                                    </div>
+                                    <div className="flex flex-col text-center items-center justify-center">
+                                        <span className="text-sm tracking-wide text_purple font-medium">Intereses</span>
+                                        <span className="text-center text-lg md:text-xl lg:text-2xl font-medium text-default-700 tracking-wider">
+                                            <RollingMonthlyPayment value={parseFloat(card.totalInterest).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} />
+                                        </span>
+                                    </div>
+                                    <div className="flex flex-col text-center items-center justify-center ">
+                                        <span className="text-sm tracking-wide text_purple font-medium">Pago Mensual:</span>
+                                        <span className="text-center text-lg md:text-xl lg:text-2xl text_teal font-medium tracking-wider">
+                                            <RollingMonthlyPayment value={parseFloat(card.monthlyPayment).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} />
+                                        </span>
                                     </div>
                                 </div>
                             ))}
                         </div>
 
                         
-                        <div className="flex flex-col gap-1 text-center w-full">
+                        <div className="flex flex-col gap-1 text-center w-full mt-3 md:mt-0">
                             <span className="text-md lg:text-lg tracking-wide text_purple font-normal">Pago mensual</span>
-                            <span className="text-xl md:text-2xl text-center tracking-wide text-secondary font-bold">{simulatedPayments[0]?.monthlyPayment || "$0.00"}</span>
+                            <span className="text-xl md:text-2xl text-center tracking-wide text_teal font-semibold">
+                                <RollingMonthlyPayment value={simulatedPaymentsConsolidated[0]?.monthlyPayment ? parseFloat(simulatedPaymentsConsolidated[0].monthlyPayment).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' }) : "$0.00"} />
+                            </span>
                         </div>
 
-                        <Link href="/contact" className="button_teal mx-auto py-2 px-6 rounded-2xl text-white font-medium mt-4">
+                        <Link href="/contact" className="button_teal mx-auto py-2 px-6 rounded-2xl text-white font-medium">
                             Solicitar mi préstamo
                         </Link>
                     </div>

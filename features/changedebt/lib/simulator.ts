@@ -1,10 +1,10 @@
 const rateFinaura = 19.9;
 
 export function calculatedSimulatedPaymentsConsolidated(rateBank: number, amount: number, months: number) {
-    return {
-        bank: calculateResults(rateBank, amount, months),
-        finaura: calculateResults(rateFinaura, amount, months)
-    }
+    return [
+        { name: 'finaura', ...calculateResults(rateFinaura, amount, months)},
+        { name: 'bank', ...calculateResults(rateBank, amount, months)},
+    ]
 }
 
 function calculateResults(rate: number, amount: number, months: number) {
@@ -13,8 +13,9 @@ function calculateResults(rate: number, amount: number, months: number) {
     const totalPayment = payment * months;
     const totalInterest = totalPayment - amount;
     return {
-        monthlyPayment: payment,
-        totalPayment,
-        totalInterest
+        monthlyPayment: payment.toFixed(2),
+        totalPayment: totalPayment.toFixed(2),
+        totalInterest: totalInterest.toFixed(2),
+        rate: rate.toFixed(2)
     }
 }
