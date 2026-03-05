@@ -244,7 +244,7 @@ export default function ChangeDebtSimulator() {
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3 h-full mt-2">
                             {simulatedPaymentsConsolidated.map((card, index) => (
-                                <div className="flex flex-col relative justify-between border-2 border-[#41C7B5]/30 rounded-2xl p-8 min-h-full shadow-lg hover:shadow-xl hover:transition-all hover:duration-300" key={index}>
+                                <div className="flex flex-col relative justify-between border-2 border-[#41C7B5]/30 rounded-2xl p-6 md:p-8 min-h-full shadow-lg hover:shadow-xl hover:transition-all hover:duration-300" key={index}>
                                     <span className={`${index === 0 ? "absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#41C7B5] text-white rounded-xl px-2 py-1 text-sm font-semibold" : "hidden"}`}>Mejor opción</span>                                    
                                     <div className="flex flex-col items-center">
                                         {card.name === 'bank' 
@@ -267,18 +267,18 @@ export default function ChangeDebtSimulator() {
                                         <span className="text-lg lg:text-2xl tracking-wide font-medium text-default-700">{card.name === 'bank' ? (selectedBank ? selectedBank : 'Tu Banco') : 'Finaura'}</span>
                                     </div>
                                     <div className="flex flex-col text-center gap-1 items-center justify-center">
-                                        <span className="text-sm tracking-wide text_purple font-medium">Tasa</span>
-                                        <span className={`text-lg lg:text-2xl tracking-wide font-semibold text-default-700`}>{card.rate}%</span>
+                                        <span className="tracking-wide text_purple font-medium">Tasa</span>
+                                        <span className={`text-2xl tracking-wide font-semibold text-default-700`}>{card.rate}%</span>
                                     </div>
-                                    <div className="flex flex-col text-center items-center justify-center">
-                                        <span className="text-sm tracking-wide text_purple font-medium">Intereses</span>
-                                        <span className="text-center text-lg md:text-xl lg:text-2xl font-medium text-default-700 tracking-wider">
+                                    <div className="flex flex-col text-center gap-1 items-center justify-center">
+                                        <span className="tracking-wide text_purple font-medium">Intereses</span>
+                                        <span className="text-center text-2xl font-medium text-default-700 tracking-wider">
                                             <RollingMonthlyPayment value={parseFloat(card.totalInterest).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} />
                                         </span>
                                     </div>
-                                    <div className="flex flex-col text-center items-center justify-center ">
-                                        <span className="text-sm tracking-wide text_purple font-medium">Pago Mensual:</span>
-                                        <span className="text-center text-lg md:text-xl lg:text-2xl text_teal font-medium tracking-wider">
+                                    <div className="flex flex-col text-center gap-1 items-center justify-center ">
+                                        <span className="tracking-wide text_purple font-medium">Pago Mensual:</span>
+                                        <span className="text-center text-2xl text_teal font-medium tracking-wider">
                                             <RollingMonthlyPayment value={parseFloat(card.monthlyPayment).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })} />
                                         </span>
                                     </div>
@@ -288,8 +288,8 @@ export default function ChangeDebtSimulator() {
 
                         
                         <div className="flex flex-col gap-1 text-center w-full mt-3 md:mt-0">
-                            <span className="text-md lg:text-lg tracking-wide text_purple font-normal">Ahorras:</span>
-                            <span className="text-xl md:text-3xl text-center tracking-wide text_teal font-semibold">
+                            <span className="text-lg tracking-wide text_purple font-normal">Ahorras:</span>
+                            <span className="text-2xl md:text-3xl text-center tracking-wider text_teal font-semibold">
                                 <RollingMonthlyPayment value={simulatedPaymentsConsolidated[0]?.totalInterest ? (parseFloat(simulatedPaymentsConsolidated[1].totalInterest) - parseFloat(simulatedPaymentsConsolidated[0].totalInterest)).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' }) : "$0.00"} />
                             </span>
                         </div>

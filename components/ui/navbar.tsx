@@ -11,6 +11,7 @@ export default function Navbar() {
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const menuRef = React.useRef<HTMLDivElement>(null);
+    const closeMenu = () => setIsMenuOpen(false);
 
     React.useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -101,7 +102,9 @@ export default function Navbar() {
                         {NavbarLinks.map((link, index) => (
                             <Link key={index} href={link.href} className={clsx(
                                 "font-normal tracking-wider text-white hover:text-white/80 text-base"
-                            )}>
+                            )}
+                                onClick={closeMenu}
+                            >
                                 {link.name}
                             </Link>
                         ))}
@@ -112,6 +115,7 @@ export default function Navbar() {
                                 hover:bg-[#7c6ddf]/80 hover:transition-colors hover:duration-400
                                 w-full text-center py-2 rounded-full tracking-wider
                                 font-sans font-medium text-white text-sm`}
+                            onClick={closeMenu}
                         >
                             Registrate
                         </Link>

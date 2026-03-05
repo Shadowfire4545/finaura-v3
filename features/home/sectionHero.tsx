@@ -141,7 +141,7 @@ export default function HomeHero() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: "easeOut" }}
-            className="items-start flex flex-col gap-4 lg:gap-8 w-full mt-8 md:mt-0"
+            className="items-center md:items-start flex flex-col gap-4 lg:gap-8 w-full mt-8 md:mt-0"
           >
             <span
               className="
@@ -175,7 +175,7 @@ export default function HomeHero() {
                 href="/simulator"
                 className="
                   bg-[#a69af7] 
-                  text-white px-6 py-2 w-full lg:w-auto
+                  text-white px-13 md:px-6 py-2 w-auto
                   rounded-full font-bold hover:opacity-70 transition-opacity duration-300
                 "
               >
@@ -186,9 +186,9 @@ export default function HomeHero() {
                 href={"/"}
                 className="
                   bg-[#7B5CF1]/60 text-white inset-shadow-sm inset-shadow-[#7B5CF1]
-                  px-4 py-1.5 rounded-full border border-white/70
+                  px-12 md:px-4 py-1.5 rounded-full border border-white/70
                   hover:bg-white/15 transition-colors duration-300
-                  w-full lg:w-auto
+                  w-auto
                 "
               >
                 ¿Como funciona?

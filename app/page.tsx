@@ -16,12 +16,12 @@ export default function Home() {
         id="home-organizations"
         className="w-full h-auto flex items-center justify-center bg-[#fefefe]"
       >
-        <div className="w-full max-w-300 h-full flex flex-col lg:flex-row p-8">
+        <div className="w-full max-w-300 h-full flex flex-col lg:flex-row p-8 gap-4 md:gap-0">
           <div className="w-full lg:w-2/3 flex flex-col items-start justify-center gap-2">
             <h2 className="text-xl font-bold tracking-wider text_purple">Somos una fintech autorizada y regulada por la CNBV</h2>
             <p className="text-base text_light_purple font-medium">Por Condusef, la Comisión Nacional Bancaria y de Valores (CNBV) y el Banco de México (Banxico).</p>
           </div>
-          <div className="w-full lg:w-1/3 items-center justify-end gap-2 grid grid-cols-3">
+          <div className="w-full lg:w-1/3 items-center justify-end md:gap-2 grid grid-cols-3">
             <div className="relative h-16 md:h-24 w-full">
               <Image src="/assets/condusef.png" alt="Organizations" fill className="object-contain "/>
             </div>
@@ -44,12 +44,12 @@ export default function Home() {
         className="section-container w-full bg-[#fefefe] py-24"
       >
         <div className="w-full max-w-350 flex flex-col items-center justify-start gap-12">
-          <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-wider text-center text_purple">Beneficios de solicitar tu préstamo en línea con pagos mensuales</h2>
+          <h2 className="text-2xl md:text-4xl font-medium tracking-wider text-center text_purple">Beneficios de solicitar tu préstamo en línea con pagos mensuales</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 md:gap-4">
             {benefitsData.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <div key={index} className="flex md:flex-col items-center md:justify-between gap-2 p-4 h-full hover:scale-105 hover:transition-transform hover:duration-500">
+                <div key={index} className="flex md:flex-col items-center md:justify-between gap-4 p-4 h-full hover:scale-105 hover:transition-transform hover:duration-500">
                   <span className="p-4 lg:p-5 bg-[#2ea390]/80 rounded-3xl">
                     {Icon && <Icon className="text-default-100 w-6 h-6 md:w-8 md:h-8"/>}
                   </span>
@@ -77,7 +77,7 @@ export default function Home() {
         id="home-requirements"
         className="section-container w-full"
       >
-        <div className="w-full max-w-300 flex flex-col items-center gap-16">
+        <div className="w-full max-w-300 flex flex-col items-center gap-8 md:gap-16">
           <h2 className="text-2xl md:text-4xl 2xl:text-5xl tracking-widest text-start md:text-center font-medium text_purple">Requisitos para obtener un préstamo en línea</h2>
           <div className="w-full flex flex-col md:flex-row items-center justify-center">
             <div className="w-auto md:w-1/2 h-50 md:h-80 lg:h-100">
@@ -152,10 +152,10 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="w-full md:w-1/2 gap-4 flex flex-col">
+            <div className="w-full md:w-1/2 gap-6 md:gap-4 flex flex-col">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium font-serif text_purple tracking-wider leading-10 md:leading-15">¿Es seguro pedir un préstamo en línea en finaura?</h2>          
               <h3 className="text-xl font-semibold text-gray-700">¡Sí, es seguro!</h3>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-8 md:gap-4">
                 <div className="flex w-full items-center justify-center">
                   <span className="text_teal text-6xl px-4 font-medium font-serif">1</span>
                   <p className="text-base tracking-wider px-4">Somos una institución autorizada, regulada y supervisada por Condusef, la CNBV y Banxico.</p>

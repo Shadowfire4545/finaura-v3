@@ -74,15 +74,15 @@ export default function HomeSimulator() {
             id="simulator"
             className="section-container min-h-full w-full items-center justify-center text-center flex flex-col"
         >
-            <div className="flex flex-col w-full max-w-300 gap-4">
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-widest -mt-4 text_purple">Más de $5,000 millones otorgados en préstamos en línea</h2>
-                <h3 className="text-sm md:text-xl lg:text-2xl font-normal mb-6 text_light_purple">Más de 4 millones de personas han confiado en nosotros.</h3>
-                <div className="flex flex-col md:flex-row w-full gap-8 mt-4">                
+            <div className="flex flex-col w-full max-w-300 gap-2 md:gap-4">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-widest -mt-4 text_purple">Más de $1,000 millones otorgados en préstamos</h2>
+                <h3 className="text-base md:text-xl lg:text-2xl font-normal mb-6 text_light_purple px-12 md:px-0">Más de 1 millón de personas han confiado en nosotros</h3>
+                <div className="flex flex-col md:flex-row w-full gap-8 md:mt-4">                
                     {/* Datos del simulador */}
                     <div className="flex flex-col items-start justify-start gap-6 md:gap-4 w-full md:w-1/3 py-4">
                         <div className="flex flex-col gap-2 items-start mb-3">
-                            <span className="text-xl md:text-2xl text-[#41C7B5] font-semibold tracking-wide text-start">Simula tu crédito en segundos</span>
-                            <span className="text-sm tracking-wide font-medium">Calcula cuánto pagarías al mes fácil y rápido</span>
+                            <span className="text-2xl text-[#41C7B5] font-semibold tracking-wide text-start">Simula tu crédito en segundos</span>
+                            <span className="text-base tracking-wide font-medium">Calcula cuánto pagarías al mes fácil y rápido</span>
                         </div>
                         
                         <NumberInput
@@ -116,7 +116,7 @@ export default function HomeSimulator() {
 
                         <div className="flex flex-col gap-3 w-full">
                             <span className="text-sm tracking-wide font-medium text-start text-secondary">Plazo (meses)*</span>
-                            <div className="grid grid-cols-6 gap-3 h-10 md:h-12 w-full">
+                            <div className="grid grid-cols-6 gap-3 h-12 md:h-12 w-full">
                                 {periodOptions.map((option) => (
                                     <button
                                         key={option}
@@ -150,14 +150,14 @@ export default function HomeSimulator() {
                             {simulatedPayments.map((card, index) => (
                                 <div 
                                     key={index} 
-                                    className={`flex flex-col gap-1 bg-white/90 rounded-2xl p-4 mt-4 items-center md:items-start shadow-md 
+                                    className={`flex flex-col gap-2 bg-white/90 rounded-2xl p-4 mt-4 items-center md:items-start shadow-md 
                                                 relative hover:-translate-y-1 hover:shadow-lg transition-all duration-500
                                                 ${index === 0 ? "border border-[#41C7B5]" : ""}`}
                                 >
                                     <span className={`${index === 0 ? "absolute -top-3 bg-[#41C7B5] text-white rounded-xl px-2 py-1 text-sm font-semibold" : "hidden"}`}>Mejor opción</span>
-                                    <span className="text-sm lg:text-lg tracking-wide font-medium text-default-700">{card.title}</span>
+                                    <span className="text-base lg:text-lg tracking-wide font-medium text-default-700">{card.title}</span>
                                     <span className={`text-2xl lg:text-3xl tracking-wide font-semibold ${index === 0 ? 'text-secondary' : index === 1 ? 'text-default-700' : 'text-danger'}`}>{card.rate}</span>
-                                    <div className="text-sm lg:text-lg tracking-wide font-medium text-default-700">
+                                    <div className="text-lg tracking-wide font-medium text-default-700">
                                         <RollingMonthlyPayment value={card.monthlyPayment} />
                                     </div>
                                 </div>

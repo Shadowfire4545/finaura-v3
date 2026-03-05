@@ -98,10 +98,10 @@ export default function ChangeDebtPage() {
             >
                 <div className="w-full max-w-300 flex flex-col items-center justify-start gap-8 md:gap-16">
                     <div className="flex flex-col gap-3 lg:gap-5">
-                        <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-center md:px-16 text_purple">
+                        <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-start md:text-center pr-4 md:pr-0 md:px-16 text_purple">
                             Beneficios de la consolidación de deudas con <span className="text_light_purple font-medium"> Finaura. </span>
                         </h2>
-                        <p className="text-center text-sm md:text-base tracking-wider">
+                        <p className="text-start md:text-center text-sm md:text-base tracking-wider">
                             Unificar tus deudas no sólo simplifica tu vida, también te ayuda a pagar menos<br/>
                             (puedes ahorrar más del 50% en intereses) y a mejorar tu salud financiera.<br/>
                             Estas son las ventajas de <span className="text_light_purple font-medium">Finaura.</span>
@@ -213,16 +213,16 @@ export default function ChangeDebtPage() {
                         {requirementsChangeDebtData.map((requirementItem, index) => (
                             <div key={index} className="flex flex-col gap-2">
                                 <div className="flex gap-3 items-center">
-                                    <span className="text-xl md:text-2xl text_light_purple font-bold">{requirementItem.step}</span>
+                                    <span className="text-2xl text_light_purple font-bold">{requirementItem.step}</span>
                                     <h3 className="text-lg md:text-xl font-medium text_purple tracking-wide">{requirementItem.title}</h3>
                                 </div>
-                                <p className="text-sm md:text-base tracking-wide text-default-600">{requirementItem.description}</p>
+                                <p className="text-base tracking-wide text-default-600">{requirementItem.description}</p>
                             </div>
                         ))}
                         <Link href={'/#contact'} className="
                             bg-[#7c6ddf] mt-3
                             hover:bg-[#7c6ddf]/80 hover:transition-colors hover:duration-400
-                            mr-auto text-center py-2 px-4 rounded-full tracking-wider
+                            mr-auto text-center py-2 px-8 md:px-4 rounded-full tracking-wider
                             font-sans font-medium text-white text-sm
                         ">
                             Consolida tu deuda
@@ -237,20 +237,20 @@ export default function ChangeDebtPage() {
                 className="section-container w-full bg-[#fefefe]"
             >
                 <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4">
-                    <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-center md:px-16 text_purple">
+                    <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-start md:text-center md:px-16 text_purple">
                         ¿Cómo funciona finaura?
                     </h2>
                     <p className="text-base lg:text-lg text-gray-600 text-center tracking-wide">
-                        Consolidar tus deudas nunca había sido tan sencillo. <br/>Aquí te explicamos cómo hacerlo en tres simples pasos:
+                        Consolidar tus deudas nunca había sido tan sencillo. Aquí te explicamos cómo hacerlo en tres simples pasos:
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-24 2xl:gap-28 w-full mt-6">
                         {howWorksFinauraData.map((item, index) => (
                             <div key={index} className="flex flex-col gap-3 h-full ">
                                 <div className="flex items-center justify-start gap-3 md:gap-6">
-                                    <span className="text-start text_light_purple text-4xl md:text-6xl px-2 font-medium font-sans">{item.step}</span>
-                                    <h3 className="text-lg font-bold text_purple tracking-wider">{item.title}</h3>
+                                    <span className="text-start text_light_purple text-3xl md:text-6xl px-2 font-medium font-sans">{item.step}</span>
+                                    <h3 className="text-xl md:text-lg font-bold text_purple tracking-wider">{item.title}</h3>
                                 </div>                                
-                                <p className="text-sm md:text-base tracking-wide text-gray-600">{item.description}</p>
+                                <p className="text-base tracking-wide text-gray-600 ml-2 md:ml-0">{item.description}</p>
                             </div>
                         ))}
                     </div>
