@@ -78,11 +78,17 @@ export default function ChangeDebtSimulator() {
     const [simulatedPaymentsConsolidated, setSimulatedPaymentsConsolidated] = useState<any[]>([]);
     const [selectedBank, setSelectedBank] = useState<string>();
     const [selectedCard, setSelectedCard] = useState<string>();
+    const [bankRate, setBankRate] = useState<number>(60.00);
     const periodOptions = [6, 12, 18, 24, 30, 36];
 
     useEffect(() => {
-        setSimulatedPaymentsConsolidated(calculatedSimulatedPaymentsConsolidated(19.9, amount, period));
-    }, [amount, period])
+        if(selectedBank && selectedCard) {
+            setBankRate(bankData.find(bank => bank.name === selectedBank)?.cards.find(card => card.name === selectedCard)?.rate || 60.00);
+        }
+        setSimulatedPaymentsConsolidated(calculatedSimulatedPaymentsConsolidated(bankRate, amount, period));
+    }, [amount, period, selectedBank, selectedCard])
+
+    console.log(selectedCard)
 
     return (
         <section
@@ -282,9 +288,9 @@ export default function ChangeDebtSimulator() {
 
                         
                         <div className="flex flex-col gap-1 text-center w-full mt-3 md:mt-0">
-                            <span className="text-md lg:text-lg tracking-wide text_purple font-normal">Pago mensual</span>
-                            <span className="text-xl md:text-2xl text-center tracking-wide text_teal font-semibold">
-                                <RollingMonthlyPayment value={simulatedPaymentsConsolidated[0]?.monthlyPayment ? parseFloat(simulatedPaymentsConsolidated[0].monthlyPayment).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' }) : "$0.00"} />
+                            <span className="text-md lg:text-lg tracking-wide text_purple font-normal">Ahorras:</span>
+                            <span className="text-xl md:text-3xl text-center tracking-wide text_teal font-semibold">
+                                <RollingMonthlyPayment value={simulatedPaymentsConsolidated[0]?.totalInterest ? (parseFloat(simulatedPaymentsConsolidated[1].totalInterest) - parseFloat(simulatedPaymentsConsolidated[0].totalInterest)).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' }) : "$0.00"} />
                             </span>
                         </div>
 

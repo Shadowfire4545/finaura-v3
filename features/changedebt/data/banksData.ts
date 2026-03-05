@@ -5,43 +5,43 @@ export const bankData = [
         cards: [
             {
                 name: "Clasica",
-                rate: 63.48,
+                rate: 62.63,
             },
             {
                 name: "Oro",
-                rate: 61.95
+                rate: 60.58
             },
             {
                 name: "Platinum",
-                rate: 60.12
+                rate: 32.02
             },
             {
                 name: "Reward",
-                rate: 59.85
+                rate: 60.65
             },
             {
                 name: "Premier",
-                rate: 58.75
+                rate: 58.19
             },
             {
                 name: "Affinity Card",
-                rate: 57.90
+                rate: 62.81
             },
             {
                 name: "Costco",
-                rate: 56.80
+                rate: 60.19
             },
             {
                 name: "Simplicity",
-                rate: 55.65
+                rate: 62.75
             },
             {
                 name: "Teletón",
-                rate: 54.50
+                rate: 62.47
             },
             {
                 name: "Prestige",
-                rate: 53.30
+                rate: 35.00
             }
         ]
     },
@@ -51,15 +51,15 @@ export const bankData = [
         cards: [
             {
                 name: "Green Card",
-                rate: 59.20
+                rate: 65.00
             },
             {
                 name: "Gold Card",
-                rate: 57.80
+                rate: 58.00
             },
             {
                 name: "Platinum Card",
-                rate: 56.50
+                rate: 55.00
             }
         ]
     },
@@ -69,19 +69,19 @@ export const bankData = [
         cards: [
             {
                 name: "Básica Internacional",
-                rate: 64.10
+                rate: 65.00
             },
             {
                 name: "Clásica Internacional",
-                rate: 62.30
+                rate: 60.00
             },
             {
                 name: "Oro Internacional",
-                rate: 60.75
+                rate: 50.00
             },
             {
                 name: "Platinum Internacional",
-                rate: 59.10
+                rate: 34.90
             }
         ]
     },
@@ -91,63 +91,63 @@ export const bankData = [
         cards: [
             {
                 name: "Por Ti",
-                rate: 66.43
+                rate: 60.60
             },
             {
                 name: "Clásica",
-                rate: 64.85
+                rate: 62.72
             },
             {
                 name: "Oro",
-                rate: 63.20
+                rate: 59.36
             },
             {
                 name: "Platinum",
-                rate: 61.50
+                rate: 46.05
             },
             {
                 name: "Mujer Banorte",
-                rate: 60.00
+                rate: 58.55
             },
             {
                 name: "Ke Buena",
-                rate: 58.75
+                rate: 64.00
             },
             {
                 name: "AT&T",
-                rate: 57.50
+                rate: 70.64
             },
             {
                 name: "AT&T Elite",
-                rate: 56.25
+                rate: 67.39
             },
             {
                 name: "Tarjeta 40",
-                rate: 55.00
+                rate: 39.99
             },
             {
                 name: "Marriot Bonvoy",
-                rate: 53.75
+                rate: 66.96
             },
             {
                 name: "BanorTec Bit",
-                rate: 52.50
+                rate: 70.08
             },
             {
                 name: "BanorTec Pro",
-                rate: 51.25
+                rate: 45.43
             },
             {
                 name: "Conmigo",
-                rate: 50.00
+                rate: 73.00
             },
             {
                 name: "United",
-                rate: 48.75
+                rate: 57.91
             },
             {
                 name: "Básica",
-                rate: 47.50
+                rate: 69.00
             }
         ]
     },
@@ -157,43 +157,43 @@ export const bankData = [
         cards: [
             {
                 name: "Azul",
-                rate: 65.00
+                rate: 72.80
             },
             {
                 name: "Rayados",
-                rate: 63.50
+                rate: 68.00
             },
             {
                 name: "Oro",
-                rate: 62.00
+                rate: 63.00
             },
             {
                 name: "Platinum",
-                rate: 60.50
+                rate: 45.00
             },
             {
                 name: "Vive",
-                rate: 59.00
+                rate: 65.00
             },
             {
                 name: "Crea",
-                rate: 57.50
+                rate: 66.00
             },
             {
                 name: "Afinidad UNAM",
-                rate: 56.00
+                rate: 63.50
             },
             {
                 name: "Educación",
-                rate: 54.50
+                rate: 60.00
             },
             {
                 name: "Mi Primer Tarjeta",
-                rate: 53.00
+                rate: 70.00
             },
             {
                 name: "IPN",
-                rate: 51.50
+                rate: 63.50
             }
         ]
     },
@@ -203,35 +203,35 @@ export const bankData = [
         cards: [
             {
                 name: "Zero",
-                rate: 62.50
+                rate: 47.42
             },
             {
                 name: "Básica",
-                rate: 60.75
-            },
-            {
-                name: "Premiere World Elite",
-                rate: 59.00
-            },
-            {
-                name: "2Now",
-                rate: 57.25
-            },
-            {
-                name: "Advance Platinum",
-                rate: 55.50
-            },
-            {
-                name: "Air",
-                rate: 53.75
-            },
-            {
-                name: "VIVA",
                 rate: 52.00
             },
             {
+                name: "Premiere World Elite",
+                rate: 25.70
+            },
+            {
+                name: "2Now",
+                rate: 45.67
+            },
+            {
+                name: "Advance Platinum",
+                rate: 33.61
+            },
+            {
+                name: "Air",
+                rate: 26.95
+            },
+            {
+                name: "VIVA",
+                rate: 43.39
+            },
+            {
                 name: "VIVA Plus",
-                rate: 50.25
+                rate: 40.45
             }
         ]
     },
@@ -241,51 +241,51 @@ export const bankData = [
         cards: [
             {
                 name: "Clásica",
-                rate: 64.00
+                rate: 63.00
             },
             {
                 name: "Oro",
-                rate: 62.25
+                rate: 58.00
             },
             {
                 name: "Platinum",
-                rate: 60.50
+                rate: 49.00
             },
             {
                 name: "Black AMEX",
-                rate: 58.75
+                rate: 36.00
             },
             {
                 name: "Fundación UNAM",
-                rate: 57.00
+                rate: 58.00
             },
             {
                 name: "Walmart",
-                rate: 55.25
+                rate: 62.00
             },
             {
                 name: "Enlace Médico",
-                rate: 53.50
+                rate: 55.00
             },
             {
                 name: "Naturgy",
-                rate: 51.75
+                rate: 54.00
             },
             {
                 name: "Bodega Aurrera",
-                rate: 50.00
+                rate: 62.00
             },
             {
                 name: "Telcel Oro",
-                rate: 48.25
+                rate: 48.00
             },
             {
                 name: "Sam's Club",
-                rate: 46.50
+                rate: 52.00
             },
             {
                 name: "Óptima",
-                rate: 44.75
+                rate: 39.00
             }
         ]
     },
@@ -295,43 +295,43 @@ export const bankData = [
         cards: [
             {
                 name: "Volaris 0",
-                rate: 63.00
+                rate: 31.00
             },
             {
                 name: "Volaris",
-                rate: 61.25
+                rate: 34.00
             },
             {
                 name: "Volaris 2.0",
-                rate: 59.50
+                rate: 30.90
             },
             {
                 name: "Despegar Platinum",
-                rate: 57.75
+                rate: 32.00
             },
             {
                 name: "Despegar Gold",
-                rate: 56.00
+                rate: 38.00
             },
             {
                 name: "Manchester United",
-                rate: 54.25
+                rate: 40.00
             },
             {
                 name: "SíCard Platinum",
-                rate: 52.50
+                rate: 36.00
             },
             {
                 name: "SíCard Plus",
-                rate: 50.75
+                rate: 42.00
             },
             {
                 name: "SíCard Básica",
-                rate: 49.00
+                rate: 45.00
             },
             {
                 name: "IKEA",
-                rate: 47.25
+                rate: 35.00
             }
         ]
     },
@@ -341,63 +341,63 @@ export const bankData = [
         cards: [
             {
                 name: "Aeroméxico Blanca",
-                rate: 65.50
+                rate: 63.00
             },
             {
                 name: "Aeroméxico Infinite",
-                rate: 63.75
+                rate: 45.00
             },
             {
                 name: "Aeroméxico Platinum",
-                rate: 62.00
+                rate: 50.00
             },
             {
                 name: "Fiesta Rewards Oro",
-                rate: 60.25
+                rate: 60.00
             },
             {
                 name: "Fiesta Rewards Platino",
-                rate: 58.50
+                rate: 52.00
             },
             {
                 name: "World Elite",
-                rate: 56.75
+                rate: 38.00
             },
             {
                 name: "Infinite",
-                rate: 55.00
+                rate: 40.00
             },
             {
                 name: "AMEX",
-                rate: 53.25
+                rate: 55.00
             },
             {
                 name: "Access Mastercard",
-                rate: 51.50
+                rate: 66.00
             },
             {
                 name: "LikeU",
-                rate: 49.75
+                rate: 66.35
             },
             {
                 name: "Gold",
-                rate: 48.00
+                rate: 58.00
             },
             {
                 name: "Platinum",
-                rate: 46.25
+                rate: 50.00
             },
             {
                 name: "Samsung Members",
-                rate: 44.50
+                rate: 64.00
             },
             {
                 name: "PyME LikeU Business",
-                rate: 42.75
+                rate: 60.00
             },
             {
                 name: "Mastercard Corporativa",
-                rate: 41.00
+                rate: 35.00
             }
         ]
     },
@@ -407,51 +407,51 @@ export const bankData = [
         cards: [
             {
                 name: "Ideal Scotiabank",
-                rate: 64.50
+                rate: 65.00
             },
             {
                 name: "Scotia Travel World Elite",
-                rate: 62.75
+                rate: 45.00
             },
             {
                 name: "AAdvantage Platinum",
-                rate: 61.00
+                rate: 55.00
             },
             {
                 name: "AAdvantage World Elite",
-                rate: 59.25
+                rate: 45.00
             },
             {
                 name: "Scotia Básica",
-                rate: 57.50
+                rate: 77.54
             },
             {
                 name: "Tasa Baja Clásica",
-                rate: 55.75
+                rate: 47.07
             },
             {
                 name: "Tasa Baja Oro",
-                rate: 54.00
+                rate: 42.00
             },
             {
                 name: "Scotia Travel Clásica",
-                rate: 52.25
+                rate: 55.00
             },
             {
                 name: "Scotia Travel Platinum",
-                rate: 50.50
+                rate: 48.00
             },
             {
                 name: "Scotia Travel Oro",
-                rate: 48.75
+                rate: 50.00
             },
             {
                 name: "Visa Signature",
-                rate: 47.00
+                rate: 40.00
             },
             {
                 name: "Infinite",
-                rate: 45.25
+                rate: 38.00
             }
         ]
     },
@@ -461,15 +461,15 @@ export const bankData = [
         cards: [
             {
                 name: "Clásica",
-                rate: 65.20
+                rate: 34.50
             },
             {
                 name: "Oro",
-                rate: 63.45
+                rate: 32.00
             },
             {
                 name: "Platinum",
-                rate: 61.70
+                rate: 29.40
             }
         ]
     },
@@ -479,7 +479,7 @@ export const bankData = [
         cards: [
             {
                 name: "NuCard",
-                rate: 58.00
+                rate: 92.50
             }
         ]
     },
@@ -489,7 +489,7 @@ export const bankData = [
         cards: [
             {
                 name: "Plata Card",
-                rate: 60.00
+                rate: 99.90
             }
         ]
     }

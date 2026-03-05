@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useId } from "react";
 
 export default function HomeHero() {
   return (
@@ -11,7 +12,7 @@ export default function HomeHero() {
       className="
         relative w-full overflow-hidden isolate text-white
         min-h-[85dvh] flex items-center justify-center
-        px-12
+        px-5 sm:px-8 lg:px-12
         bg-[linear-gradient(110deg,#6A4BE0_0%,#7B5CF1_36%,#41C7B5_100%)]
       "
     >
@@ -161,7 +162,7 @@ export default function HomeHero() {
 
             {/* Mobile image (misma estética que desktop) */}
             <div className="flex md:hidden w-full mt-2">
-              <HeroCurvedImage />
+              <HeroCurvedImage mode="mobile" />
             </div>
 
             <p className="hidden md:flex text-lg lg:text-xl italic text-default-200">
@@ -169,7 +170,7 @@ export default function HomeHero() {
               <br /> en un solo plan claro y sostenible
             </p>
 
-            <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 w-full text-center -mb-8 md:mb-0 z-150">
+            <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6 w-full text-center mb-2 md:mb-0 z-150">
               <Link
                 href="/simulator"
                 className="
@@ -199,7 +200,7 @@ export default function HomeHero() {
         {/* Right (desktop) */}
         <div className="hidden md:flex w-full lg:w-1/2 items-center justify-center">
           <div className="relative w-full h-100 flex items-center justify-center">
-            <HeroCurvedImage />
+            <HeroCurvedImage mode="desktop" />
           </div>
         </div>
       </div>
@@ -214,95 +215,29 @@ export default function HomeHero() {
  * - recorte de la foto con clipPath (curva grande)
  * - sombra suave premium (no caja blanca)
  */
-function HeroCurvedImage() {
+function HeroCurvedImage({ mode = "desktop" }: { mode?: "mobile" | "desktop" }) {
+  const id = useId();
+  const frameGradId = `${id}-frameGrad`;
+  const panelGradId = `${id}-panelGrad`;
+  const heroClipId = `${id}-heroClip`;
+  const frameGlowId = `${id}-frameGlow`;
+  const arcLineId = `${id}-arcLine`;
+
   return (
-    <div className="relative w-full max-w-160 aspect-16/10">
+    <div className="relative w-full max-w-160 aspect-16/10 min-h-60">
       {/* Sombra base */}
       <div className="absolute inset-0 hero-curve-shadow" />
 
-      <svg
-        className="absolute inset-0 w-full h-full"
-        viewBox="0 0 800 500"
-        preserveAspectRatio="xMidYMid meet"
-        aria-hidden="true"
-      >
-        <defs>
-          {/* Marco exterior suave (degradado) */}
-          <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#7B5CF1" stopOpacity="0.45" />
-            <stop offset="55%" stopColor="#ffffff" stopOpacity="0.10" />
-            <stop offset="100%" stopColor="#41C7B5" stopOpacity="0.35" />
-          </linearGradient>
-
-          {/* Fondo del “panel” detrás de la foto */}
-          <linearGradient id="panelGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7B5CF1" stopOpacity="0.22" />
-            <stop offset="55%" stopColor="#ffffff" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#41C7B5" stopOpacity="0.18" />
-          </linearGradient>
-
-          {/* Clip curvo tipo mockup (gran óvalo/curva horizontal) */}
-          <clipPath id="heroClip">
-            <path d="M150,110 C230,40 570,40 650,110 C720,170 720,330 650,390 C570,460 230,460 150,390 C80,330 80,170 150,110 Z" />
-          </clipPath>
-
-          {/* Glow del marco */}
-          <filter id="frameGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="10" result="blur" />
-            <feColorMatrix
-              in="blur"
-              type="matrix"
-              values="
-                1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                0 0 0 0.85 0"
-            />
-          </filter>
-        </defs>
-
-        {/* Líneas curvas sutiles sobre el panel */}
-        <path
-          d="M70,140 C220,40 580,50 740,165"
-          fill="none"
-          stroke="url(#arcLine)"
-          strokeWidth="2"
-          opacity="0.55"
-        />
-        <path
-          d="M55,310 C240,205 560,220 760,330"
-          fill="none"
-          stroke="url(#arcLine)"
-          strokeWidth="1.6"
-          opacity="0.45"
-        />
-
-        {/* “Halo” interno detrás del recorte */}
-        <path
-          d="M150,110 C230,40 570,40 650,110 C720,170 720,330 650,390 C570,460 230,460 150,390 C80,330 80,170 150,110 Z"
-          fill="rgba(255,255,255,0.10)"
-        />
-
-        {/* Imagen recortada con clipPath */}
-        <foreignObject
-          x="80"
-          y="0"
-          width="640"
-          height="540"
-          clipPath="url(#heroClip)"
-        >
-          <div className="relative w-full h-full">
+      <div className="relative w-full h-full">
             <Image
-              src={"/assets/home/secure.avif"}
+              src="/assets/home/secure.avif"
               alt="Banner Image"
               fill
-              className="object-contain"
-              priority
+              className="object-contain object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={mode === "desktop"}
             />
           </div>
-        </foreignObject>
-
-      </svg>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { benefitsDataChangeDebt } from "@/features/changedebt/data/benefitsData";
 import { howWorksFinauraData } from "@/features/changedebt/data/howWorksFinaura";
+import { requirementsChangeDebtData } from "@/features/changedebt/data/requirementsData";
 import ChangeDebtHero from "@/features/changedebt/sectionHero";
+import SectionRealCases from "@/features/changedebt/sectionRealCases";
 import ChangeDebtSimulator from "@/features/changedebt/sectionSimulator";
 import Image from "next/image";
 import Link from "next/link";
@@ -125,10 +127,114 @@ export default function ChangeDebtPage() {
                 </div>
             </section>
 
+            {/* Section Comparative */}
+            <section
+                id="changedebt-comparative"
+                className="section-container w-full"
+            >
+                <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4">
+                    <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-medium tracking-widest text_purple">
+                        Finaura VS Banco tradicional
+                    </h2>
+                    <p>Descubre por qué Finaura es una alternativa más flexible y conveniente que los bancos tradicionales.</p>
+                    <div className="mt-4 w-full max-w-200 px-1 sm:px-3 md:px-0">
+                        <div className="overflow-x-auto rounded-3xl bg-white/70 p-4 sm:p-6 md:p-8">
+                            <table className="w-full min-w-180">
+                                <thead>
+                                    <tr className="tracking-wide">
+                                        <th className="px-4 py-6 text-center text-2xl text_purple font-semibold">Condiciones</th>
+                                        <th className="px-4 py-6 text-center text-2xl text_purple font-semibold">Finaura</th>
+                                        <th className="px-4 py-6 text-center text-2xl text_purple font-semibold">Banco Tradicional</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td className="border-t border-default px-4 py-4 font-semibold">Tasa de interés</td>
+                                        <td className="border-t border-default px-4 py-4">Tasas personalizadas. Desde 8.9% anual</td>
+                                        <td className="border-t border-default px-4 py-4">Tasas similares a las tarjetas de crédito (+50%)</td>
+                                    </tr>
+                                    <tr className="bg-default-100">
+                                        <td className="border-t border-default px-4 py-4 font-semibold">Plazos</td>
+                                        <td className="border-t border-default px-4 py-4">Plazos personalizados. De 6 a 36 meses, tú decides</td>
+                                        <td className="border-t border-default px-4 py-4">Plazos rígidos. Los decide el banco</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="border-t border-default px-4 py-4 font-semibold">Requisitos</td>
+                                        <td className="border-t border-default px-4 py-4">Menos estrictos, sin necesidad de aval</td>
+                                        <td className="border-t border-default px-4 py-4">Requisitos estrictos, aval requerido</td>
+                                    </tr>
+                                    <tr className="bg-default-100">
+                                        <td className="border-t border-default px-4 py-4 font-semibold">Flexibilidad de pagos</td>
+                                        <td className="border-t border-default px-4 py-4">Pagos flexibles, puedes pagar más o menos cada mes</td>
+                                        <td className="border-t border-default px-4 py-4">Pagos rígidos, monto fijo cada mes</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="border-t border-default px-4 py-4 font-semibold">Proceso de solicitud</td>
+                                        <td className="border-t border-default px-4 py-4">100% en línea, respuesta rápida</td>
+                                        <td className="border-t border-default px-4 py-4">Presencial o en línea, proceso lento</td>
+                                    </tr>
+                                    <tr className="bg-default-100">
+                                        <td className="border-t border-default px-4 py-4 font-semibold">Atención al cliente</td>
+                                        <td className="border-t border-default px-4 py-4">Atención personalizada, asesor financiero dedicado</td>
+                                        <td className="border-t border-default px-4 py-4">Atención genérica, sin asesor dedicado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Section Requirements */}
+            <section
+                id="changedebt-requirements"
+                className="section-container w-full"
+            >
+                <div className="w-full max-w-300 flex flex-col md:flex-row items-center md:items-stretch justify-start gap-8 md:gap-16 h-full">
+                    <div className="flex flex-col w-full md:w-1/2 justify-start md:justify-between gap-2 h-full">
+                        <div className="flex flex-col text-start gap-4">
+                            <h2 className="text-2xl md:text-3xl 2xl:text-4xl font-medium tracking-widest text_purple">
+                                Requisitos para consolidar tus deudas con Finaura
+                            </h2>
+                            <p className="text-sm md:text-base tracking-wider">
+                                Para poder beneficiarte de nuestra solución de consolidación de deudas, necesitas cumplir con algunos requisitos básicos:
+                            </p>
+                        </div>
+                        <div className="relative w-full min-h-72">
+                            <Image
+                                src={'/assets/changeDebt/banner2.avif'}
+                                alt="requirements image"
+                                fill
+                                className="object-contain rounded-lg"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-4 md:gap-6 w-full md:w-1/2">
+                        {requirementsChangeDebtData.map((requirementItem, index) => (
+                            <div key={index} className="flex flex-col gap-2">
+                                <div className="flex gap-3 items-center">
+                                    <span className="text-xl md:text-2xl text_light_purple font-bold">{requirementItem.step}</span>
+                                    <h3 className="text-lg md:text-xl font-medium text_purple tracking-wide">{requirementItem.title}</h3>
+                                </div>
+                                <p className="text-sm md:text-base tracking-wide text-default-600">{requirementItem.description}</p>
+                            </div>
+                        ))}
+                        <Link href={'/#contact'} className="
+                            bg-[#7c6ddf] mt-3
+                            hover:bg-[#7c6ddf]/80 hover:transition-colors hover:duration-400
+                            mr-auto text-center py-2 px-4 rounded-full tracking-wider
+                            font-sans font-medium text-white text-sm
+                        ">
+                            Consolida tu deuda
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Section How-It-Works Finaura */}
             <section
                 id="changeedebt-how-it-works-finaura"
-                className="section-container w-full"
+                className="section-container w-full bg-[#fefefe]"
             >
                 <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4">
                     <h2 className="text-2xl md:text-4xl 2xl:text-5xl font-medium tracking-widest text-center md:px-16 text_purple">
@@ -140,14 +246,36 @@ export default function ChangeDebtPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-24 2xl:gap-28 w-full mt-6">
                         {howWorksFinauraData.map((item, index) => (
                             <div key={index} className="flex flex-col gap-3 h-full ">
-                                <div className="flex items-center justify-start gap-6">
-                                    <span className="text-start text_light_purple text-6xl px-2 font-medium font-sans">{item.step}</span>
+                                <div className="flex items-center justify-start gap-3 md:gap-6">
+                                    <span className="text-start text_light_purple text-4xl md:text-6xl px-2 font-medium font-sans">{item.step}</span>
                                     <h3 className="text-lg font-bold text_purple tracking-wider">{item.title}</h3>
                                 </div>                                
                                 <p className="text-sm md:text-base tracking-wide text-gray-600">{item.description}</p>
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Section Real Cases */}
+            <SectionRealCases />
+
+            {/* End Section CTA */}
+            <section
+                id="home-cta"
+                className="w-full h-full flex items-center bg-[#fefefe] justify-center"
+            >
+                <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4 my-24">
+                    <h2 className="text-xl md:text-3xl 2xl:text-4xl text-center text_purple font-medium tracking-wider leading-10 md:leading-15 max-w-250 px-4 md:px-0">Comienza hoy a pagar menos por tus deudas<br/>¡Solicita tu préstamo con Finaura!</h2>
+                    <Link 
+                        href="/contact" 
+                        className="
+                        text-base font-medium tracking-widest
+                        mt-4 inline-block bg-[#5b4acb] text-white  py-3 px-8 rounded-full 
+                        hover:bg-[#5b4acb]/80 transition-colors duration-300"
+                    >
+                        Solicitar préstamo
+                    </Link>
                 </div>
             </section>
         </>
