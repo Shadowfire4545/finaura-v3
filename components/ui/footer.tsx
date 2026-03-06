@@ -96,7 +96,7 @@ export default function Footer () {
                             contacto@finaura.com
                         </p>
                         <Link 
-                            href={'/contact'} 
+                            href={'/changedebt#simulator'} 
                             className="
                                 py-1 px-4 border rounded-full text-sm mx-auto md:mr-auto md:mx-0 w-auto mt-4 
                                 bg-linear-to-bl from-[#7760eb]/10 to-[#4fc5b7]/10 tracking-wider 

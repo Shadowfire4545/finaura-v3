@@ -123,7 +123,7 @@ export default function ChangeDebtPage() {
                         )
                         })}
                     </div>
-                    <Link href="/contact" className="text-white bg-[#41C7B5] px-5 rounded-3xl py-2 font-medium tracking-wider hover:opacity-80 hover:transition-transform-opacity hover:duration-250">Ver más beneficios</Link>
+                    <Link href="/#home-results" className="text-white bg-[#41C7B5] px-5 rounded-3xl py-2 font-medium tracking-wider hover:opacity-80 hover:transition-transform-opacity hover:duration-250">Ver más beneficios</Link>
                 </div>
             </section>
 
@@ -268,7 +268,7 @@ export default function ChangeDebtPage() {
                 <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4 my-24">
                     <h2 className="text-xl md:text-3xl 2xl:text-4xl text-center text_purple font-medium tracking-wider leading-10 md:leading-15 max-w-250 px-4 md:px-0">Comienza hoy a pagar menos por tus deudas<br/>¡Solicita tu préstamo con Finaura!</h2>
                     <Link 
-                        href="/contact" 
+                        href="/#home-simulator" 
                         className="
                         text-base font-medium tracking-widest
                         mt-4 inline-block bg-[#5b4acb] text-white  py-3 px-8 rounded-full 

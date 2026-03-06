@@ -46,7 +46,7 @@ export default function ChangeDebtHero() {
                             Cotiza tu préstamo
                         </Link>
                         <Link 
-                            href="/contact"
+                            href="/changedebt#simulator"
                             className="
                                 w-1/2 md:w-auto text-center
                                 bg-[#7c6ddf] hover:bg-[#7c6ddf]/80 text-sm text-white md:px-8 py-3 rounded-full 

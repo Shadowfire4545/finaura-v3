@@ -165,7 +165,7 @@ export default function HomeSimulator() {
                         </div>
 
                         <div className="flex flex-col md:flex-row w-full gap-6 mt-2">
-                            <Link href="/contact" className="button_teal w-full p-2 rounded-2xl text-white font-medium mt-4">
+                            <Link href="/changedebt#simulator" className="button_teal w-full p-2 rounded-2xl text-white font-medium mt-4">
                                 Solicitar mi préstamo
                             </Link>
                         </div>

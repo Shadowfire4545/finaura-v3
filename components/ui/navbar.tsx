@@ -72,14 +72,14 @@ export default function Navbar() {
                 {/* BUTTONS */}
                 <div className="hidden lg:flex">
                     <Link 
-                        href={'/contact'} 
+                        href={'/changedebt#simulator'} 
                         className={`
                             bg-[#7c6ddf] 
                             hover:bg-[#7c6ddf]/80 hover:transition-colors hover:duration-400
                             px-4 py-2 rounded-full tracking-wider 
                             font-sans font-medium text-white`}
                     >
-                        Registrate
+                        Evaluar mi caso
                     </Link>
                 </div>
 
@@ -109,7 +109,7 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <Link
-                            href={'/contact'}
+                            href={'/changedebt#simulator'}
                             className={`
                                 bg-[#7c6ddf] 
                                 hover:bg-[#7c6ddf]/80 hover:transition-colors hover:duration-400
@@ -117,7 +117,7 @@ export default function Navbar() {
                                 font-sans font-medium text-white text-sm`}
                             onClick={closeMenu}
                         >
-                            Registrate
+                            Evaluar mi caso
                         </Link>
                     </div>
                 </div>

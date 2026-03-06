@@ -294,7 +294,7 @@ export default function ChangeDebtSimulator() {
                             </span>
                         </div>
 
-                        <Link href="/contact" className="button_teal mx-auto py-2 px-6 rounded-2xl text-white font-medium">
+                        <Link href="/changedebt#simulator" className="button_teal mx-auto py-2 px-6 rounded-2xl text-white font-medium">
                             Solicitar mi préstamo
                         </Link>
                     </div>

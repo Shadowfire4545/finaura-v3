@@ -26,7 +26,7 @@ export default function NotFoundPage() {
             <p className="text-base md:text-lg text_light_purple">Lo sentimos, la página que buscas no existe.</p>
             <div className="flex justify-between gap-4 mt-4">
                 <Link href="/" className="rounded-full text-white bg-[#7B5CF1]/60 px-6 py-1.5 tracking-wide hover:bg-[#7B5CF1]/80 hover:transition-transform-colors hover:duration-300">Volver al inicio</Link>
-                <Link href="/contact" className="rounded-full px-6 py-1.5 border-1 border-[#7B5CF1] text_purple tracking-wider hover:bg-[#7B5CF1]/20 hover:transition-transform-colors hover:duration-300">Contáctanos</Link>
+                <Link href="/changedebt" className="rounded-full px-6 py-1.5 border-1 border-[#7B5CF1] text_purple tracking-wider hover:bg-[#7B5CF1]/20 hover:transition-transform-colors hover:duration-300">Contáctanos</Link>
             </div>
         </div>
     )

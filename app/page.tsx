@@ -62,7 +62,7 @@ export default function Home() {
             })}
           </div>
           <Link 
-            href="/contact" 
+            href="/changedebt#changedebt-benefits" 
             className="
               text-white bg-[#41C7B5] px-12 rounded-3xl py-3 font-medium tracking-wider 
               hover:opacity-80 hover:transition-transform-opacity hover:duration-250"
@@ -197,7 +197,7 @@ export default function Home() {
               )
             })}
           </div>
-          <Link href="/contact" className="text-white bg-[#41C7B5] px-5 rounded-3xl py-2 font-medium tracking-wider hover:opacity-80 hover:transition-transform-opacity hover:duration-250">Ver más beneficios</Link>
+          <Link href="/changedebt#changedebt-benefits" className="text-white bg-[#41C7B5] px-5 rounded-3xl py-2 font-medium tracking-wider hover:opacity-80 hover:transition-transform-opacity hover:duration-250">Ver más beneficios</Link>
         </div>
       </section>
 
@@ -212,7 +212,7 @@ export default function Home() {
         <div className="w-full max-w-300 flex flex-col items-center justify-center gap-4 my-24">
           <h2 className="text-2xl md:text-4xl 2xl:text-5xl text-center text_purple font-medium tracking-wider leading-10 md:leading-15 max-w-250 px-4 md:px-0">¿Buscas un préstamo seguro y con tasas y montos atractivos?</h2>
           <Link 
-            href="/contact" 
+            href="/changedebt#simulator" 
             className="
               text-base font-medium tracking-widest
               mt-4 inline-block bg-[#5b4acb] text-white  py-3 px-8 rounded-full 
