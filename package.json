@@ -9,8 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@heroui/react": "^2.8.8",
-    "framer-motion": "^12.34.0",
+    "@heroui/react": "^2.8.10",
+    "framer-motion": "^12.35.2",
     "motion": "^12.34.2",
     "next": "16.1.6",
     "react": "19.2.3",

@@ -4,7 +4,6 @@ import { NumberInput, Select, SelectItem } from "@heroui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { getSimulatedPayments } from "../home/lib/simulator";
 import { bankData } from "./data/banksData";
 import Image from "next/image";
 import { CiCreditCard1 } from "react-icons/ci";
@@ -139,7 +138,7 @@ export default function ChangeDebtSimulator() {
                             placeholder="Selecciona un banco"
                             color="secondary"
                             variant="bordered"
-                            className="w-full"
+                            className="w-full z-200"
                             selectedKeys={selectedBank ? new Set([selectedBank]) : new Set()}
                             onSelectionChange={(keys) => setSelectedBank(Array.from(keys)[0] as string)}
                             radius="full"
@@ -184,7 +183,7 @@ export default function ChangeDebtSimulator() {
                             isDisabled={!selectedBank}
                             color="secondary"
                             variant="bordered"
-                            className="w-full"
+                            className="w-full z-200"
                             radius="full"
                             selectedKeys={selectedCard ? new Set([selectedCard]) : new Set()}
                             onSelectionChange={(keys) => setSelectedCard(Array.from(keys)[0] as string)}
